@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import FloatingLogo from "./floating-logo"
+import DownloadButtons from "./download-buttons"
 
 export default function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -122,11 +122,12 @@ export default function HeroSection() {
           Jogue desafios, explore a intimidade e eleve o nível do seu relacionamento.
         </motion.p>
 
-        {/* CTA Button */}
+        {/* CTA and Download Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
+          className="flex flex-col items-center gap-6"
         >
           <Button
             size="lg"
@@ -135,21 +136,10 @@ export default function HeroSection() {
           >
             Jogar Agora
           </Button>
-        </motion.div>
-
-        {/* Scroll Down Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, repeatType: "loop" }}
-          >
-            <ArrowDown className="h-8 w-8 text-white/70" />
-          </motion.div>
+          
+          <div className="text-white/80 text-sm mb-2">ou baixe diretamente:</div>
+          
+          <DownloadButtons variant="secondary" size="sm" />
         </motion.div>
       </div>
     </section>

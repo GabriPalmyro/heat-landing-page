@@ -5,6 +5,7 @@ import FeaturesSection from "@/components/features-section"
 import TestimonialsSection from "@/components/testimonials-section"
 import CtaSection from "@/components/cta-section"
 import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 export default function LandingPage() {
   return (
@@ -16,6 +17,7 @@ export default function LandingPage() {
       <FeaturesSection />
       <TestimonialsSection />
       <CtaSection />
+      <Footer />
     </main>
   )
 }

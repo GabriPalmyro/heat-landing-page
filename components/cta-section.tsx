@@ -3,9 +3,8 @@
 import { useRef } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
 import Logo from "./logo"
+import DownloadButtons from "./download-buttons"
 
 export default function CtaSection() {
   const ref = useRef(null)
@@ -45,25 +44,13 @@ export default function CtaSection() {
               Pronto para apimentar as coisas?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-xl mx-auto">
-              Baixe agora o Heat e descubra uma nova dimensão de diversão e intimidade no seu relacionamento.
+              Baixe agora o Heat para Android e descubra uma nova dimensão de diversão e intimidade no seu relacionamento.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button
-                size="lg"
-                className="bg-white hover:bg-white/90 text-[#FF1D3E] hover:text-[#FF1D3E] text-lg px-8 py-6 rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
-              >
-                Jogar Agora
-                <ArrowRight className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-transparent border-white text-white hover:bg-white/10 text-lg px-8 py-6 rounded-full font-bold transition-all duration-300"
-              >
-                Saiba Mais
-              </Button>
-            </div>
-            <p className="mt-6 text-white/70 text-sm">Disponível para Android e iOS. Sem anúncios intrusivos.</p>
+            
+            {/* Download Buttons */}
+            <DownloadButtons variant="primary" size="lg" className="mb-6" />
+            
+            <p className="mt-6 text-white/70 text-sm">Disponível para Android. Versão iOS em breve!</p>
           </motion.div>
         </div>
       </div>
