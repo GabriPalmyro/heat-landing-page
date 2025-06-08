@@ -1,10 +1,9 @@
 "use client"
 
+import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import Logo from "./logo"
 import DownloadButtons from "./download-buttons"
+import Logo from "./logo"
 
 export default function CtaSection() {
   const ref = useRef(null)

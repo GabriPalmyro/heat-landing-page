@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import FloatingLogo from "./floating-logo"
+import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 import DownloadButtons from "./download-buttons"
+import FloatingLogo from "./floating-logo"
 
 export default function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })

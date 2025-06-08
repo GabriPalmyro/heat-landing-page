@@ -1,8 +1,8 @@
 "use client"
 
-import Logo from "./logo"
-import DownloadButtons from "./download-buttons"
 import { Heart } from "lucide-react"
+import DownloadButtons from "./download-buttons"
+import Logo from "./logo"
 
 export default function Footer() {
   const scrollToTop = () => {
