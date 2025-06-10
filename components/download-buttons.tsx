@@ -41,15 +41,17 @@ export default function DownloadButtons({
   return (
     <div className={`flex flex-col sm:flex-row justify-center gap-4 ${className}`}>
       <Button
+        asChild
         size={size}
-        disabled
-        className={`${sizeClasses} rounded-full font-bold flex items-center gap-3 shadow-lg bg-gray-400 text-gray-600 cursor-not-allowed opacity-60`}
+        className={`${buttonClasses} ${sizeClasses} rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-3 shadow-lg`}
       >
-        <AppleIcon className={`${isLarge ? 'h-6 w-6' : 'h-4 w-4'}`} />
-        <span className="flex flex-col items-start">
-          <span className="text-xs text-gray-500">Em breve na</span>
-          <span className="font-bold">App Store</span>
-        </span>
+        <a href="https://apps.apple.com/us/app/heat-game/id6742337191" target="_blank" rel="noopener noreferrer">
+          <AppleIcon className={`${isLarge ? 'h-6 w-6' : 'h-4 w-4'}`} />
+          <span className="flex flex-col items-start">
+            <span className={`text-xs ${isPrimary ? 'text-[#FF1D3E]/70' : 'text-white/70'}`}>Baixar na</span>
+            <span className="font-bold">App Store</span>
+          </span>
+        </a>
       </Button>
       <Button
         asChild

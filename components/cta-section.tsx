@@ -43,13 +43,13 @@ export default function CtaSection() {
               Pronto para apimentar as coisas?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-xl mx-auto">
-              Baixe agora o Heat para Android e descubra uma nova dimensão de diversão e intimidade no seu relacionamento.
+              Baixe agora o Heat e descubra uma nova dimensão de diversão e intimidade no seu relacionamento.
             </p>
             
             {/* Download Buttons */}
             <DownloadButtons variant="primary" size="lg" className="mb-6" />
             
-            <p className="mt-6 text-white/70 text-sm">Disponível para Android. Versão iOS em breve!</p>
+            <p className="mt-6 text-white/70 text-sm">Disponível para Android e iOS. Sem anúncios intrusivos.</p>
           </motion.div>
         </div>
       </div>
