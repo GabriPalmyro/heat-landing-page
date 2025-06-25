@@ -69,6 +69,30 @@ export default function Footer() {
               >
                 Depoimentos
               </button>
+              <a
+                href="/termos-de-uso"
+                className="text-white/70 hover:text-white transition-colors text-sm"
+              >
+                Termos de Uso
+              </a>
+              <a
+                href="/politicas-de-privacidade"
+                className="text-white/70 hover:text-white transition-colors text-sm"
+              >
+                Políticas de Privacidade
+              </a>
+              <a
+                href="/exclusao-de-conta"
+                className="text-white/70 hover:text-white transition-colors text-sm"
+              >
+                Exclusão de Conta
+              </a>
+              <a
+                href="/suporte"
+                className="text-white/70 hover:text-white transition-colors text-sm"
+              >
+                Suporte
+              </a>
             </nav>
           </div>
         </div>
