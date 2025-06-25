@@ -1,12 +1,12 @@
-import Footer from "@/components/footer"
 import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 export const metadata = {
-  title: "Solicitação de Exclusão de Conta - Heat Game",
-  description: "Saiba como solicitar a exclusão da sua conta no Heat Game e o que acontece com seus dados.",
+  title: "Account Deletion Request - Heat Game",
+  description: "Learn how to request deletion of your Heat Game account and what happens to your data.",
 }
 
-export default function AccountDeletionPage() {
+export default function AccountDeletionEnPage() {
   return (
     <main className="flex min-h-screen flex-col">
       <Header />
@@ -14,39 +14,39 @@ export default function AccountDeletionPage() {
       <div className="flex-1 container mx-auto px-4 py-16 max-w-4xl">
         <div className="prose prose-invert max-w-none">
           <h1 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
-            Solicitação de Exclusão de Conta — Heat Game 🔥
+            Account Deletion Request — Heat Game 🔥
           </h1>
           
           <div className="flex justify-center mb-6">
             <div className="flex space-x-4 bg-gray-800/50 p-2 rounded-lg">
-              <span className="px-3 py-1 bg-orange-500 text-white rounded text-sm font-semibold">🇧🇷 PT</span>
               <a 
-                href="/en/account-deletion" 
+                href="/exclusao-de-conta" 
                 className="px-3 py-1 text-gray-400 hover:text-white rounded text-sm transition-colors"
               >
-                🇺🇸 EN
+                🇧🇷 PT
               </a>
+              <span className="px-3 py-1 bg-orange-500 text-white rounded text-sm font-semibold">🇺🇸 EN</span>
             </div>
           </div>
           
           <div className="text-gray-300 space-y-8">
             <p className="text-lg text-center">
-              Se você deseja <strong className="text-orange-500">excluir sua conta</strong> no{" "}
-              <strong className="text-orange-500">Heat App</strong>, por favor, siga as instruções abaixo.
+              If you wish to <strong className="text-orange-500">delete your account</strong> on{" "}
+              <strong className="text-orange-500">Heat App</strong>, please follow the instructions below.
             </p>
 
             <section>
-              <h2 className="text-2xl font-semibold text-orange-500 mb-6">Como Solicitar a Exclusão da Sua Conta:</h2>
+              <h2 className="text-2xl font-semibold text-orange-500 mb-6">How to Request Account Deletion:</h2>
               
               <p className="mb-4">
-                Para iniciar o processo de exclusão da sua conta, envie um e-mail para o seguinte endereço:
+                To initiate the account deletion process, send an email to the following address:
               </p>
               
               <div className="bg-gray-800/50 p-6 rounded-lg border border-orange-500/20 mb-6">
                 <p className="text-center">
-                  <strong className="text-orange-500">E-mail</strong>:{" "}
+                  <strong className="text-orange-500">Email</strong>:{" "}
                   <a 
-                    href="mailto:suporte@heatgame.com.br?subject=Solicitação de Exclusão de Conta"
+                    href="mailto:suporte@heatgame.com.br?subject=Account Deletion Request"
                     className="text-orange-500 hover:text-orange-400 underline font-semibold text-lg"
                   >
                     suporte@heatgame.com.br
@@ -54,20 +54,20 @@ export default function AccountDeletionPage() {
                 </p>
               </div>
 
-              <p className="mb-4">No e-mail, inclua as seguintes informações:</p>
+              <p className="mb-4">In the email, include the following information:</p>
               
               <div className="bg-gray-900/50 p-6 rounded-lg space-y-4">
                 <div>
-                  <h4 className="font-semibold text-orange-400 mb-2">• Assunto:</h4>
-                  <p className="ml-4 text-gray-300">Solicitação de Exclusão de Conta</p>
+                  <h4 className="font-semibold text-orange-400 mb-2">• Subject:</h4>
+                  <p className="ml-4 text-gray-300">Account Deletion Request</p>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-orange-400 mb-2">• Corpo do E-mail:</h4>
+                  <h4 className="font-semibold text-orange-400 mb-2">• Email Body:</h4>
                   <ul className="ml-4 space-y-2 text-gray-300">
-                    <li>- Nome completo</li>
-                    <li>- E-mail associado à conta que deseja excluir</li>
-                    <li>- Qualquer outra informação relevante (se necessário)</li>
+                    <li>- Full name</li>
+                    <li>- Email associated with the account you want to delete</li>
+                    <li>- Any other relevant information (if necessary)</li>
                   </ul>
                 </div>
               </div>
@@ -76,27 +76,27 @@ export default function AccountDeletionPage() {
             <hr className="border-gray-700" />
 
             <section>
-              <h2 className="text-2xl font-semibold text-orange-500 mb-4">O que Acontece Após a Solicitação:</h2>
+              <h2 className="text-2xl font-semibold text-orange-500 mb-4">What Happens After the Request:</h2>
               
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3">
                   <span className="text-orange-500 font-bold text-lg">•</span>
                   <p>
-                    Após recebermos sua solicitação, nossa equipe processará o pedido de exclusão de sua conta.
+                    After we receive your request, our team will process the account deletion request.
                   </p>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-orange-500 font-bold text-lg">•</span>
                   <p>
-                    Você receberá uma confirmação por e-mail dentro de{" "}
-                    <strong className="text-orange-500">7 dias úteis</strong> informando que sua conta foi excluída com sucesso.
+                    You will receive a confirmation email within{" "}
+                    <strong className="text-orange-500">7 business days</strong> informing you that your account has been successfully deleted.
                   </p>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-orange-500 font-bold text-lg">•</span>
                   <p>
-                    Após a exclusão, <strong className="text-orange-500">todos os dados associados à sua conta serão apagados</strong>, 
-                    incluindo histórico, configurações e preferências.
+                    After deletion, <strong className="text-orange-500">all data associated with your account will be erased</strong>, 
+                    including history, settings and preferences.
                   </p>
                 </li>
               </ul>
@@ -105,21 +105,21 @@ export default function AccountDeletionPage() {
             <hr className="border-gray-700" />
 
             <section>
-              <h2 className="text-2xl font-semibold text-orange-500 mb-4">⚠️ Importante:</h2>
+              <h2 className="text-2xl font-semibold text-orange-500 mb-4">⚠️ Important:</h2>
               
               <div className="bg-red-900/20 border border-red-500/30 p-6 rounded-lg space-y-4">
                 <div className="flex items-start space-x-3">
                   <span className="text-red-400 font-bold text-lg">•</span>
                   <p>
-                    <strong className="text-red-400">A exclusão é permanente</strong> e não pode ser revertida. 
-                    Após a exclusão, você perderá o acesso ao aplicativo e todos os dados relacionados à sua conta.
+                    <strong className="text-red-400">Deletion is permanent</strong> and cannot be reversed. 
+                    After deletion, you will lose access to the application and all data related to your account.
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <span className="text-red-400 font-bold text-lg">•</span>
                   <p>
-                    Se você mudar de ideia após solicitar a exclusão, <strong className="text-red-400">não será possível 
-                    recuperar sua conta</strong> ou os dados associados a ela.
+                    If you change your mind after requesting deletion, <strong className="text-red-400">it will not be possible 
+                    to recover your account</strong> or the data associated with it.
                   </p>
                 </div>
               </div>
@@ -130,10 +130,10 @@ export default function AccountDeletionPage() {
             <section>
               <div className="bg-gray-800/50 p-6 rounded-lg text-center">
                 <p className="mb-4">
-                  Se você tiver alguma dúvida ou preocupação, não hesite em entrar em contato conosco pelo e-mail acima.
+                  If you have any questions or concerns, please don't hesitate to contact us at the email above.
                 </p>
                 <p className="text-orange-400">
-                  Agradecemos por ter usado o <strong>Heat App</strong>. Se decidir voltar no futuro, será um prazer tê-lo de volta!
+                  Thank you for using <strong>Heat App</strong>. If you decide to return in the future, we'd be happy to have you back!
                 </p>
               </div>
             </section>
@@ -142,15 +142,15 @@ export default function AccountDeletionPage() {
 
             <div className="bg-gray-800/50 p-6 rounded-lg">
               <p className="text-sm text-gray-400">
-                <strong>Nota</strong>: Este processo de exclusão está em conformidade com as leis de proteção de dados 
-                aplicáveis, como o <strong className="text-orange-500">GDPR</strong> e a{" "}
+                <strong>Note</strong>: This deletion process is in compliance with applicable data protection laws, 
+                such as <strong className="text-orange-500">GDPR</strong> and{" "}
                 <strong className="text-orange-500">LGPD</strong>.
               </p>
             </div>
 
             <div className="text-center mt-12">
               <p className="text-gray-500">
-                <strong>Heat Game</strong> © Todos os direitos reservados.
+                <strong>Heat Game</strong> © All rights reserved.
               </p>
             </div>
           </div>

@@ -69,30 +69,64 @@ export default function Footer() {
               >
                 Depoimentos
               </button>
-              <a
-                href="/termos-de-uso"
-                className="text-white/70 hover:text-white transition-colors text-sm"
-              >
-                Termos de Uso
-              </a>
-              <a
-                href="/politicas-de-privacidade"
-                className="text-white/70 hover:text-white transition-colors text-sm"
-              >
-                Políticas de Privacidade
-              </a>
-              <a
-                href="/exclusao-de-conta"
-                className="text-white/70 hover:text-white transition-colors text-sm"
-              >
-                Exclusão de Conta
-              </a>
-              <a
-                href="/suporte"
-                className="text-white/70 hover:text-white transition-colors text-sm"
-              >
-                Suporte
-              </a>
+              <div className="pt-2 border-t border-white/10">
+                <p className="text-white/50 text-xs mb-2">Português</p>
+                <div className="flex flex-col space-y-1">
+                  <a
+                    href="/termos-de-uso"
+                    className="text-white/70 hover:text-white transition-colors text-sm"
+                  >
+                    Termos de Uso
+                  </a>
+                  <a
+                    href="/politicas-de-privacidade"
+                    className="text-white/70 hover:text-white transition-colors text-sm"
+                  >
+                    Políticas de Privacidade
+                  </a>
+                  <a
+                    href="/exclusao-de-conta"
+                    className="text-white/70 hover:text-white transition-colors text-sm"
+                  >
+                    Exclusão de Conta
+                  </a>
+                  <a
+                    href="/suporte"
+                    className="text-white/70 hover:text-white transition-colors text-sm"
+                  >
+                    Suporte
+                  </a>
+                </div>
+              </div>
+              <div className="pt-2">
+                <p className="text-white/50 text-xs mb-2">English</p>
+                <div className="flex flex-col space-y-1">
+                  <a
+                    href="/en/terms-of-use"
+                    className="text-white/70 hover:text-white transition-colors text-sm"
+                  >
+                    Terms of Use
+                  </a>
+                  <a
+                    href="/en/privacy-policy"
+                    className="text-white/70 hover:text-white transition-colors text-sm"
+                  >
+                    Privacy Policy
+                  </a>
+                  <a
+                    href="/en/account-deletion"
+                    className="text-white/70 hover:text-white transition-colors text-sm"
+                  >
+                    Account Deletion
+                  </a>
+                  <a
+                    href="/en/support"
+                    className="text-white/70 hover:text-white transition-colors text-sm"
+                  >
+                    Support
+                  </a>
+                </div>
+              </div>
             </nav>
           </div>
         </div>

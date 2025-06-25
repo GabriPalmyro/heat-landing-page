@@ -17,6 +17,18 @@ export default function SupportPage() {
             Suporte — Heat Game 🔥
           </h1>
           
+          <div className="flex justify-center mb-6">
+            <div className="flex space-x-4 bg-gray-800/50 p-2 rounded-lg">
+              <span className="px-3 py-1 bg-orange-500 text-white rounded text-sm font-semibold">🇧🇷 PT</span>
+              <a 
+                href="/en/support" 
+                className="px-3 py-1 text-gray-400 hover:text-white rounded text-sm transition-colors"
+              >
+                🇺🇸 EN
+              </a>
+            </div>
+          </div>
+          
           <p className="text-center text-gray-400 mb-12">
             <strong>Última atualização:</strong> 23/05/2025
           </p>
