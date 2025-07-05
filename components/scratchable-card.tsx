@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { ScratchCard } from "next-scratchcard"
 import { useEffect, useState } from "react"
 
@@ -47,42 +46,55 @@ export default function ScratchableCard({
   }
 
   return (
-    <div className={`relative w-full max-w-[250px] mx-auto ${className}`}>
-      <div className="w-full aspect-[4/5] rounded-lg overflow-hidden shadow-2xl bg-gradient-to-br from-[#FF1D3E] via-[#E53E3E] to-[#C53030]">
+    <div className={`relative w-full max-w-[200px] sm:max-w-[250px] mx-auto ${className}`}>
+      {/* Glow effect behind the card */}
+      <div 
+        className="absolute inset-0 rounded-lg"
+        style={{
+          background: 'rgba(255, 29, 62, 0.18)',
+          filter: 'blur(17px)',
+          transform: 'scale(1.1)',
+          zIndex: -1
+        }}
+      />
+      
+      <div className="w-full aspect-[896/1424] rounded-lg overflow-hidden shadow-2xl bg-gradient-to-b from-[#FF1D3E] via-[#E53E3E] to-[#C53030]">
         <div
+          className="w-full h-full flex items-center justify-center"
           onMouseDown={handleScratchStart}
           onMouseUp={handleScratchEnd}
           onMouseLeave={handleScratchEnd}
           onTouchStart={handleScratchStart}
           onTouchEnd={handleScratchEnd}
           onTouchCancel={handleScratchEnd}
-        >
-          <ScratchCard
-            width={250}
-            height={320}
-            image="/images/card-mask.png"
-            finishPercent={70}
-            onComplete={handleComplete}
-            brushSize={40}
-          >
-            {/* Revealed content - Position illustration */}
-            <div className="w-full h-full bg-white flex items-center justify-center">
-              <div className="text-center w-full">
-                {/* Position Image */}
-                <div className="mb-2 sm:mb-3 w-full flex justify-center">
-                  <img
-                    src="/images/position-reveal.jpg"
-                    alt="Posição revelada"
-                    className="w-full h-full object-cover"
-                  />
+        >          <div className="w-full h-full max-w-full max-h-full">
+            <ScratchCard
+              width={200}
+              height={318}
+              image="/images/card-mask.png"
+              finishPercent={100}
+              onComplete={handleComplete}
+              brushSize={35}
+            >
+              {/* Revealed content - Position illustration */}
+              <div className="w-full h-full bg-white flex items-center justify-center">
+                <div className="text-center w-full">
+                  {/* Position Image */}
+                  <div className="mb-2 sm:mb-3 w-full flex justify-center">
+                    <img
+                      src="/images/position-reveal.jpg"
+                      alt="Posição revelada"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </ScratchCard>
+            </ScratchCard>
+          </div>
         </div>
       </div>
 
-      {/* Completion celebration */}
+      {/* Completion celebration
       {isRevealed && (
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
@@ -92,7 +104,7 @@ export default function ScratchableCard({
         >
           🎉 Revelado!
         </motion.div>
-      )}
+      )} */}
     </div>
   )
 }
