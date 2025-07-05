@@ -31,38 +31,43 @@ export default function DownloadButtons({
   const isLarge = size === "lg"
   
   const buttonClasses = isPrimary 
-    ? "bg-white hover:bg-white/90 text-[#FF1D3E] hover:text-[#FF1D3E]"
-    : "bg-[#FF1D3E] hover:bg-[#F45454] text-white"
+    ? "bg-white hover:bg-white/90 text-[#FF1D3E] hover:text-[#FF1D3E] border-2 border-white"
+    : "bg-[#FF1D3E] hover:bg-[#F45454] text-white border-2 border-[#FF1D3E]"
   
   const sizeClasses = isLarge 
-    ? "text-lg px-8 py-6" 
-    : "text-sm px-4 py-2"
+    ? "text-base px-6 py-4" 
+    : "text-sm px-4 py-3"
 
   return (
-    <div className={`flex flex-col sm:flex-row justify-center gap-4 ${className}`}>
+    <div className={`flex flex-col justify-center gap-3 w-full max-w-sm mx-auto ${className}`}>
       <Button
         asChild
         size={size}
-        className={`${buttonClasses} ${sizeClasses} rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-3 shadow-lg`}
+        className={`${buttonClasses} ${sizeClasses} rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-3 shadow-lg w-full justify-start`}
       >
         <a href="https://apps.apple.com/us/app/heat-game/id6742337191" target="_blank" rel="noopener noreferrer">
-          <AppleIcon className={`${isLarge ? 'h-6 w-6' : 'h-4 w-4'}`} />
+          <AppleIcon className={`${isLarge ? 'h-7 w-7' : 'h-5 w-5'} flex-shrink-0`} />
           <span className="flex flex-col items-start">
-            <span className={`text-xs ${isPrimary ? 'text-[#FF1D3E]/70' : 'text-white/70'}`}>Baixar na</span>
-            <span className="font-bold">App Store</span>
+            <span className={`text-xs ${isPrimary ? 'text-[#FF1D3E]/70' : 'text-white/70'}`}>Instale na</span>
+            <span className="font-bold text-left">App Store</span>
           </span>
         </a>
       </Button>
+      
+      <div className="text-center">
+        <span className="text-white text-sm font-medium">Ou</span>
+      </div>
+      
       <Button
         asChild
         size={size}
-        className={`${buttonClasses} ${sizeClasses} rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-3 shadow-lg`}
+        className={`${buttonClasses} ${sizeClasses} rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-3 shadow-lg w-full justify-start`}
       >
         <a href="https://play.google.com/store/apps/details?id=com.heatcouple.app" target="_blank" rel="noopener noreferrer">
-          <GooglePlayIcon className={`${isLarge ? 'h-6 w-6' : 'h-4 w-4'}`} />
+          <GooglePlayIcon className={`${isLarge ? 'h-7 w-7' : 'h-5 w-5'} flex-shrink-0`} />
           <span className="flex flex-col items-start">
-            <span className={`text-xs ${isPrimary ? 'text-[#FF1D3E]/70' : 'text-white/70'}`}>Baixar no</span>
-            <span className="font-bold">Google Play</span>
+            <span className={`text-xs ${isPrimary ? 'text-[#FF1D3E]/70' : 'text-white/70'}`}>Instale na</span>
+            <span className="font-bold text-left">Play Store</span>
           </span>
         </a>
       </Button>

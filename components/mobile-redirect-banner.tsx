@@ -18,12 +18,12 @@ export default function MobileRedirectBanner({
   const [redirectDisabled, setRedirectDisabled] = useState(false)
   const [mobileOS, setMobileOS] = useState<'ios' | 'android' | null>(null)
 
-  // Usar o hook de redirect apenas se não foi desabilitado
+  // Usar o hook de redirect com redirect desabilitado
   useMobileRedirect({
     appStoreUrl,
     googlePlayUrl,
     redirectDelay: 2000,
-    enableRedirect: !redirectDisabled
+    enableRedirect: false
   })
 
   useEffect(() => {

@@ -1,9 +1,8 @@
 "use client"
 
+import { motion, useInView } from "framer-motion"
+import { Flame, Heart, Shield, Sparkles, Users, Zap } from "lucide-react"
 import { useRef } from "react"
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { Heart, Flame, Sparkles, Shield, Zap, Users } from "lucide-react"
 
 export default function FeaturesSection() {
   const ref = useRef(null)
@@ -62,8 +61,16 @@ export default function FeaturesSection() {
   }
 
   return (
-    <section id="features" ref={ref} className="w-full py-20 bg-[#1D0611]">
-      <div className="container px-4 md:px-6 mx-auto">
+    <section id="features" ref={ref} className="relative w-full py-20 bg-gradient-to-b from-black via-gray-900 to-black">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 50% 50%, rgba(255,29,62,0.3) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+      
+      <div className="container relative z-10 px-4 md:px-6 mx-auto">
         <div className="text-center mb-12">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
