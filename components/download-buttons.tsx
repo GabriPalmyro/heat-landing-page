@@ -35,8 +35,8 @@ export default function DownloadButtons({
     : "bg-[#FF1D3E] hover:bg-[#F45454] text-white border-2 border-[#FF1D3E]"
   
   const sizeClasses = isLarge 
-    ? "text-xl px-10 py-6" 
-    : "text-lg px-8 py-5"
+    ? "text-xl px-10 py-8" 
+    : "text-lg px-8 py-6"
 
   return (
     <div className={`flex flex-col justify-center gap-3 w-full max-w-sm mx-auto ${className}`}>
@@ -46,8 +46,8 @@ export default function DownloadButtons({
         className={`${buttonClasses} ${sizeClasses} rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-4 shadow-lg w-full justify-center`}
       >
         <a href="https://apps.apple.com/us/app/heat-game/id6742337191" target="_blank" rel="noopener noreferrer">
-          <AppleIcon className={`${isLarge ? 'h-15 w-12' : 'h-12 w-9'} flex-shrink-0`} />
-          <span className="flex flex-col items-center">
+          <AppleIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
+          <span className="flex flex-col items-center -space-y-1">
             <span className={`${isLarge ? 'text-base' : 'text-sm'} font-light ${isPrimary ? 'text-[#FF1D3E]/60' : 'text-white/60'}`}>Instale na</span>
             <span className={`font-bold ${isLarge ? 'text-xl' : 'text-lg'}`}>App Store</span>
           </span>
@@ -64,8 +64,8 @@ export default function DownloadButtons({
         className={`${buttonClasses} ${sizeClasses} rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-4 shadow-lg w-full justify-center`}
       >
         <a href="https://play.google.com/store/apps/details?id=com.heatcouple.app" target="_blank" rel="noopener noreferrer">
-          <GooglePlayIcon className={`${isLarge ? 'h-12 w-12' : 'h-9 w-9'} flex-shrink-0`} />
-          <span className="flex flex-col items-center">
+          <GooglePlayIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
+          <span className="flex flex-col items-center -space-y-1">
             <span className={`${isLarge ? 'text-base' : 'text-sm'} font-light ${isPrimary ? 'text-[#FF1D3E]/60' : 'text-white/60'}`}>Instale na</span>
             <span className={`font-bold ${isLarge ? 'text-xl' : 'text-lg'}`}>Play Store</span>
           </span>

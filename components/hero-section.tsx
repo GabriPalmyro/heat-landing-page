@@ -38,7 +38,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 lg:mb-6 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 lg:mb-6 leading-tight"
             >
               Faça Sexo como
               <br />
@@ -131,7 +131,7 @@ export default function HeroSection() {
 
             <div className="w-full max-w-[220px] sm:max-w-[250px] lg:max-w-[280px]">
               <ScratchableCard 
-                className="mb-4 lg:mb-6 w-full" 
+                className="mb-9 lg:mb-12 w-full" 
               />
             </div>
 
