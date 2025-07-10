@@ -104,7 +104,7 @@ export default function HeroSection() {
                   ))}
                 </div>
                 <span className="text-white text-xs lg:text-sm">
-                  4,6/5,0 - 12.551 avaliações
+                  4,7/5,0 - 12.551 avaliações
                 </span>
               </div>
             </motion.div>
