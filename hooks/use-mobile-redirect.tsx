@@ -10,7 +10,7 @@ export interface MobileRedirectOptions {
 }
 
 const defaultOptions: Required<MobileRedirectOptions> = {
-  appStoreUrl: 'https://apps.apple.com/us/app/heat-game/id6742337191',
+  appStoreUrl: 'https://apps.apple.com/app/heat-sex-game/id6742337191',
   googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.heatcouple.app',
   redirectDelay: 500,
   enableRedirect: false

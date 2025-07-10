@@ -14,7 +14,7 @@ interface AutoMobileRedirectProps {
  * sem mostrar nenhuma interface para o usuário
  */
 export default function AutoMobileRedirect({
-  appStoreUrl = 'https://apps.apple.com/us/app/heat-game/id6742337191',
+  appStoreUrl = 'https://apps.apple.com/app/heat-sex-game/id6742337191',
   googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.heatcouple.app',
   redirectDelay = 1000,
   enabled = true
