@@ -11,7 +11,7 @@ interface MobileRedirectBannerProps {
 }
 
 export default function MobileRedirectBanner({ 
-  appStoreUrl = 'https://apps.apple.com/us/app/heat-game/id6742337191',
+  appStoreUrl = 'https://apps.apple.com/app/heat-game/id6742337191',
   googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.heatcouple.app'
 }: MobileRedirectBannerProps) {
   const [showBanner, setShowBanner] = useState(false)
