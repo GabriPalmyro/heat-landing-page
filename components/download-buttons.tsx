@@ -45,7 +45,7 @@ export default function DownloadButtons({
         size={size}
         className={`${buttonClasses} ${sizeClasses} rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-4 shadow-lg w-full justify-center`}
       >
-        <a href="https://apps.apple.com/app/heat-sex-game/id6742337191" target="_blank" rel="noopener noreferrer">
+        <a href="https://apps.apple.com/app/id6742337191" target="_blank" rel="noopener noreferrer">
           <AppleIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
           <span className="flex flex-col items-center -space-y-1">
             <span className={`${isLarge ? 'text-base' : 'text-sm'} font-light ${isPrimary ? 'text-[#FF1D3E]/60' : 'text-white/60'}`}>Instale na</span>
