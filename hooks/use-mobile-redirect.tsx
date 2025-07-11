@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export interface MobileRedirectOptions {
   appStoreUrl?: string
@@ -13,14 +13,20 @@ const defaultOptions: Required<MobileRedirectOptions> = {
   appStoreUrl: 'https://apps.apple.com/app/id6742337191',
   googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.heatcouple.app',
   redirectDelay: 300,
-  enableRedirect: true
+  enableRedirect: false
 }
 
 export function useMobileRedirect(options: MobileRedirectOptions = {}) {
   const config = { ...defaultOptions, ...options }
+  const [isFromTikTok, setIsFromTikTok] = useState(false)
+  const [mobileOS, setMobileOS] = useState<'ios' | 'android' | null>(null)
 
   useEffect(() => {
-    if (!config.enableRedirect) return
+    // Detecta se veio do TikTok
+    const urlParams = new URLSearchParams(window.location.search)
+    const fromTikTok = urlParams.get('tiktok') === 'true'
+    const testMode = urlParams.get('test') === 'true' // Parâmetro para testar
+    setIsFromTikTok(fromTikTok)
 
     const detectMobileOS = () => {
       const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera
@@ -38,12 +44,18 @@ export function useMobileRedirect(options: MobileRedirectOptions = {}) {
       return null
     }
 
+    const detectedOS = detectMobileOS()
+    // Se estiver em modo de teste, força iOS para mostrar o banner
+    const finalOS = testMode ? 'ios' : detectedOS
+    setMobileOS(finalOS)
+
+    // Só faz redirect se não veio do TikTok e o redirect estiver habilitado
+    if (!config.enableRedirect || fromTikTok) return
+
     const redirectToStore = () => {
-      const mobileOS = detectMobileOS()
-      
-      if (mobileOS === 'ios') {
+      if (detectedOS === 'ios') {
         window.location.href = config.appStoreUrl
-      } else if (mobileOS === 'android') {
+      } else if (detectedOS === 'android') {
         window.location.href = config.googlePlayUrl
       }
     }
@@ -55,6 +67,9 @@ export function useMobileRedirect(options: MobileRedirectOptions = {}) {
   }, [config])
 
   return {
-    isRedirectEnabled: config.enableRedirect
+    isRedirectEnabled: config.enableRedirect,
+    isFromTikTok,
+    mobileOS,
+    shouldShowTikTokMessage: isFromTikTok && mobileOS === 'ios'
   }
 }

@@ -40,7 +40,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 lg:mb-6 leading-tight"
             >
-              Faça S*xo como
+              Faça Sexo como
               <br />
               nunca antes
             </motion.h1>
@@ -52,7 +52,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-base sm:text-lg md:text-xl text-white/90 mb-6 lg:mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              Desperte o seu lado s*xual com o seu amor,
+              Desperte o seu lado sexual com o seu amor,
               com mais de mil desafios do leve ao extremo,
               com posições e fetiches
             </motion.p>
