@@ -12,8 +12,8 @@ export interface MobileRedirectOptions {
 const defaultOptions: Required<MobileRedirectOptions> = {
   appStoreUrl: 'https://apps.apple.com/app/id6742337191',
   googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.heatcouple.app',
-  redirectDelay: 500,
-  enableRedirect: false
+  redirectDelay: 300,
+  enableRedirect: true
 }
 
 export function useMobileRedirect(options: MobileRedirectOptions = {}) {
