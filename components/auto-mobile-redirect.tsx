@@ -17,7 +17,7 @@ export default function AutoMobileRedirect({
   appStoreUrl = 'https://apps.apple.com/app/id6742337191',
   googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.heatcouple.app',
   redirectDelay = 1000,
-  enabled = true
+  enabled = false
 }: AutoMobileRedirectProps) {
   useMobileRedirect({
     appStoreUrl,
