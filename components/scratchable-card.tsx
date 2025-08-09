@@ -53,18 +53,34 @@ export default function ScratchableCard({
     if (!el) return
 
     const update = () => {
-      const rect = el.getBoundingClientRect()
-      // Use ceil to avoid sub-pixel gaps on the right/bottom
-      const w = Math.max(1, Math.ceil(rect.width))
-      const h = Math.max(1, Math.ceil(rect.height))
+      // clientWidth/Height are integers and avoid sub-pixel overflow issues
+      const w = Math.max(1, el.clientWidth)
+      const h = Math.max(1, el.clientHeight)
       setSize((prev) => (prev.w !== w || prev.h !== h ? { w, h } : prev))
     }
 
-    update()
+    // Update after paint to avoid measuring before layout settles
+    const raf = requestAnimationFrame(update)
 
-    const ro = new ResizeObserver(() => update())
-    ro.observe(el)
-    return () => ro.disconnect()
+    let ro: ResizeObserver | undefined
+    if (typeof ResizeObserver !== 'undefined') {
+      ro = new ResizeObserver(update)
+      ro.observe(el)
+    } else {
+      // Fallback for older browsers
+      window.addEventListener('resize', update)
+      window.addEventListener('orientationchange', update)
+    }
+
+    return () => {
+      cancelAnimationFrame(raf)
+      if (ro) {
+        ro.disconnect()
+      } else {
+        window.removeEventListener('resize', update)
+        window.removeEventListener('orientationchange', update)
+      }
+    }
   }, [])
 
   return (
@@ -80,7 +96,7 @@ export default function ScratchableCard({
         }}
       />
       
-      <div className="w-full aspect-[896/1424] rounded-lg overflow-hidden shadow-2xl bg-gradient-to-b from-[#FF1D3E] via-[#E53E3E] to-[#C53030]">
+  <div ref={containerRef} className="w-full aspect-[896/1424] rounded-lg overflow-hidden shadow-2xl bg-gradient-to-b from-[#FF1D3E] via-[#E53E3E] to-[#C53030]">
         <div
           className="relative w-full h-full"
           onMouseDown={handleScratchStart}
@@ -90,10 +106,7 @@ export default function ScratchableCard({
           onTouchEnd={handleScratchEnd}
           onTouchCancel={handleScratchEnd}
         >
-          <div
-            ref={containerRef}
-            className="absolute inset-0 [&>canvas]:block [&>canvas]:w-full [&>canvas]:h-full"
-          >
+          <div className="absolute inset-0 overflow-hidden [&_canvas]:block [&_canvas]:w-full [&_canvas]:h-full">
             {size.w > 0 && size.h > 0 && (
               <ScratchCard
                 width={size.w}
