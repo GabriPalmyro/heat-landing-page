@@ -1,5 +1,5 @@
-import Header from "@/components/header"
 import Footer from "@/components/footer"
+import Header from "@/components/header"
 
 export const metadata = {
   title: "Support - Heat Game",
@@ -26,11 +26,17 @@ export default function SupportEnPage() {
                 🇧🇷 PT
               </a>
               <span className="px-3 py-1 bg-orange-500 text-white rounded text-sm font-semibold">🇺🇸 EN</span>
+              <a 
+                href="/es/support" 
+                className="px-3 py-1 text-gray-400 hover:text-white rounded text-sm transition-colors"
+              >
+                🇪🇸 ES
+              </a>
             </div>
           </div>
           
           <p className="text-center text-gray-400 mb-12">
-            <strong>Last updated:</strong> May 23, 2025
+            <strong>Last updated:</strong> August 30, 2025
           </p>
           
           <div className="text-gray-300 space-y-8">
@@ -38,6 +44,33 @@ export default function SupportEnPage() {
               If you're having problems or have questions about <strong className="text-orange-500">Heat App</strong>, 
               we're here to help! Follow the instructions below to find solutions, contact us or report any issues.
             </p>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-orange-500 mb-6">⚠️ Important Update - Google Play Store</h2>
+              
+              <div className="bg-yellow-900/20 p-6 rounded-lg border border-yellow-500/30 mb-8">
+                <h3 className="text-yellow-400 font-semibold mb-4">App Temporarily Unavailable on Android</h3>
+                <p className="text-sm mb-4">
+                  Unfortunately, our Heat app is temporarily blocked on Google Play Store due to some store restrictions. 
+                  <strong> We are working hard to resolve this situation as quickly as possible.</strong>
+                </p>
+                <p className="text-sm mb-4">
+                  <strong>We are exploring alternatives such as:</strong>
+                </p>
+                <ul className="text-sm space-y-1 list-disc list-inside mb-4">
+                  <li>Redistribution through other trusted platforms</li>
+                  <li>Direct download availability (APK)</li>
+                  <li>Resubmission to Play Store with proper corrections</li>
+                </ul>
+                <p className="text-sm mb-4">
+                  <strong className="text-green-400">✅ Available on:</strong> App Store (iOS)<br/>
+                  <strong className="text-red-400">⏸️ Temporarily unavailable on:</strong> Google Play Store (Android)
+                </p>
+                <p className="text-sm">
+                  <strong>Our team is dedicated to ensuring you have access to Heat soon. We appreciate your patience and understanding.</strong>
+                </p>
+              </div>
+            </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-orange-500 mb-6">1. Common Problems and Solutions</h2>

@@ -6,13 +6,20 @@ import HeroSection from "@/components/hero-section"
 import TestimonialsSection from "@/components/testimonials-section"
 import TikTokIOSBanner from "@/components/tiktok-ios-banner"
 
-export default function LandingPage() {
+export const metadata = {
+  title: "Heat - The Hottest Game for Couples",
+  description: "Play challenges, explore intimacy, and take your relationship to the next level with Heat.",
+  icons: {
+    icon: "/images/heat-logo-black-bg.png",
+  },
+}
+
+export default function LandingPageEn() {
   return (
     <>
       <Header />
       <TikTokIOSBanner />
       <AutoMobileRedirect />
-      {/* <MobileRedirectBanner /> */}
   <main className="min-h-screen pt-[72px] md:pt-[96px]">
         <HeroSection />
         <FeaturesSection />

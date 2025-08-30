@@ -61,7 +61,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="space-y-3 lg:space-y-4 mb-6 lg:mb-8 text-center max-w-md mx-auto"
+              className="space-y-3 lg:space-y-4 mb-6 lg:mb-8 text-center max-w-md mx-auto lg:text-left lg:mx-0"
             >
               {[
               "Relacionamento a distância",
@@ -69,14 +69,14 @@ export default function HeroSection() {
               "Roleta e notificações",
               "Perguntas íntimas"
               ].map((feature, index) => (
-              <div key={index} className="flex items-center justify-center gap-3">
+              <div key={index} className="flex items-center justify-center gap-3 lg:justify-start">
                 <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-[#FF1D3E] flex items-center justify-center flex-shrink-0">
-                  <svg className="w-3 h-3 lg:w-4 lg:h-4 text-white" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
+                <svg className="w-3 h-3 lg:w-4 lg:h-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
                 </div>
-                  <span className="text-white text-sm sm:text-base lg:text-lg font-bold">{feature}</span>
-                </div>
+                <span className="text-white text-sm sm:text-base lg:text-lg font-bold">{feature}</span>
+              </div>
               ))}
             </motion.div>
 

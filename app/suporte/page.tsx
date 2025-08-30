@@ -26,11 +26,17 @@ export default function SupportPage() {
               >
                 🇺🇸 EN
               </a>
+              <a 
+                href="/es/support" 
+                className="px-3 py-1 text-gray-400 hover:text-white rounded text-sm transition-colors"
+              >
+                🇪🇸 ES
+              </a>
             </div>
           </div>
           
           <p className="text-center text-gray-400 mb-12">
-            <strong>Última atualização:</strong> 23/05/2025
+            <strong>Última atualização:</strong> 30/08/2025
           </p>
           
           <div className="text-gray-300 space-y-8">
@@ -39,6 +45,33 @@ export default function SupportPage() {
               estamos aqui para ajudar! Siga as instruções abaixo para encontrar soluções, entrar em contato conosco ou 
               relatar qualquer problema.
             </p>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-orange-500 mb-6">⚠️ Atualização Importante - Google Play Store</h2>
+              
+              <div className="bg-yellow-900/20 p-6 rounded-lg border border-yellow-500/30 mb-8">
+                <h3 className="text-yellow-400 font-semibold mb-4">Aplicativo Temporariamente Indisponível no Android</h3>
+                <p className="text-sm mb-4">
+                  Infelizmente, nosso aplicativo Heat está temporariamente bloqueado na Google Play Store devido a algumas restrições da loja. 
+                  <strong> Estamos trabalhando arduamente para resolver essa situação o mais rápido possível.</strong>
+                </p>
+                <p className="text-sm mb-4">
+                  <strong>Estamos explorando alternativas como:</strong>
+                </p>
+                <ul className="text-sm space-y-1 list-disc list-inside mb-4">
+                  <li>Redistribuição através de outras plataformas confiáveis</li>
+                  <li>Disponibilização de download direto (APK)</li>
+                  <li>Reenvio para aprovação na Play Store com as devidas correções</li>
+                </ul>
+                <p className="text-sm mb-4">
+                  <strong className="text-green-400">✅ Disponível em:</strong> App Store (iOS)<br/>
+                  <strong className="text-red-400">⏸️ Temporariamente indisponível em:</strong> Google Play Store (Android)
+                </p>
+                <p className="text-sm">
+                  <strong>Nossa equipe está dedicada a garantir que você tenha acesso ao Heat em breve. Agradecemos sua paciência e compreensão.</strong>
+                </p>
+              </div>
+            </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-orange-500 mb-6">1. Problemas Comuns e Soluções</h2>
