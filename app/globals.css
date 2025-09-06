@@ -70,3 +70,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Adding scrollbar-hide utility for mobile-friendly horizontal scrolling */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

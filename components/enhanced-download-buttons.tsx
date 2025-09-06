@@ -1,8 +1,6 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
-import GooglePlayRestrictionDialog from "./google-play-restriction-dialog"
 
 interface DownloadButtonsProps {
   variant?: "primary" | "secondary"
@@ -52,8 +50,6 @@ export default function EnhancedDownloadButtons({
   className = "",
   language = "pt-br"
 }: DownloadButtonsProps) {
-  const [showRestrictionDialog, setShowRestrictionDialog] = useState(false)
-  
   const texts = languageTexts[language]
   const isPrimary = variant === "primary"
   const isLarge = size === "lg"
@@ -68,7 +64,15 @@ export default function EnhancedDownloadButtons({
 
   const handlePlayStoreClick = (e: React.MouseEvent) => {
     e.preventDefault()
-    setShowRestrictionDialog(true)
+    // Detect current language and redirect to appropriate android route
+    const currentPath = window.location.pathname
+    if (currentPath.startsWith('/en/')) {
+      window.location.href = '/en/android'
+    } else if (currentPath.startsWith('/es/')) {
+      window.location.href = '/es/android'
+    } else {
+      window.location.href = '/android'
+    }
   }
 
   return (
@@ -118,12 +122,6 @@ export default function EnhancedDownloadButtons({
           </div> */}
         </Button>
       </div>
-
-      <GooglePlayRestrictionDialog 
-        isOpen={showRestrictionDialog}
-        onClose={() => setShowRestrictionDialog(false)}
-        language={language}
-      />
     </>
   )
 }
