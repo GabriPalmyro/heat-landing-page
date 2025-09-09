@@ -1,6 +1,6 @@
 {
   "nav": {
-    "about": "Acerca",
+    "about": "Acerca de",
     "features": "Características",
     "testimonials": "Testimonios",
     "playNow": "Jugar Ahora",
@@ -17,11 +17,11 @@
     "features": [
       "Relación a distancia",
       "Posiciones y desafíos",
-      "Ruleta y notificaciones", 
+      "Ruleta y notificaciones",
       "Preguntas íntimas"
     ],
     "cardTitle": "Rasca y desbloquea una nueva posición 😈",
-    "rating": "4,7/5,0 - 12.551 reseñas"
+    "rating": "4,7/5,0 - 12.551 valoraciones"
   },
   "features": {
     "title": "Características Exclusivas",
@@ -33,10 +33,10 @@
       },
       {
         "title": "Niveles de Intensidad",
-        "description": "Ajusta la intensidad del juego según tu estado de ánimo y preferencias."
+        "description": "Ajusta la intensidad del juego según tu humor y preferencias."
       },
       {
-        "title": "Desafíos Exclusivos", 
+        "title": "Desafíos Exclusivos",
         "description": "Contenido único que no encontrarás en ninguna otra aplicación."
       },
       {
@@ -68,22 +68,38 @@
         "location": "Barcelona"
       },
       {
-        "quote": "Perfecto para romper la rutina y agregar un poco de aventura a la relación.",
-        "author": "Carla & Pedro",
+        "quote": "Perfecto para parejas a larga distancia. Nos ayuda a mantener la conexión y la pasión.",
+        "author": "Sofia",
+        "location": "Valencia"
+      },
+      {
+        "quote": "Los diferentes niveles de intensidad hacen que siempre sea emocionante. ¡Nunca sabemos qué esperar!",
+        "author": "Carlos & Lucia",
         "location": "Sevilla"
       }
     ]
   },
   "footer": {
-    "description": "El juego más caliente para parejas. Transforma momentos comunes en experiencias inolvidables.",
+    "description": "El juego más caliente para parejas. Transforma momentos ordinarios en experiencias inolvidables.",
     "downloadTitle": "Descargar Ahora",
     "navigationTitle": "Navegación",
-    "aboutNav": "Acerca",
+    "companyTitle": "Empresa",
+    "aboutNav": "Acerca de",
     "featuresNav": "Características",
-    "testimonialsNav": "Testimonios", 
+    "testimonialsNav": "Testimonios",
     "copyright": "© 2024 Heat. Todos los derechos reservados.",
     "madeWith": "Hecho con",
-    "forCouples": "para parejas"
+    "forCouples": "para parejas",
+    "companyInfo": {
+      "name": "HEAT APPS LTDA",
+      "fantasyName": "HEAT APP",
+      "cnpj": "CNPJ: 62.577.106/0001-00",
+      "address": "Av. Pedro Taques, 2205, Sala 2",
+      "city": "Maringá - PR, Brasil",
+      "cep": "CEP: 87.033-000",
+      "email": "suporte@heatgame.com.br",
+      "phone": "+55 (11) 2317-8368"
+    }
   },
   "download": {
     "installOn": "Descargar en",

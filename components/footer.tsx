@@ -25,7 +25,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#1D0611] border-t border-white/10">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
           {/* Logo and Brand */}
           <div className="flex flex-col items-center md:items-start space-y-4">
             <div className="flex items-center space-x-3">
@@ -42,6 +42,26 @@ export default function Footer() {
             <p className="text-white/70 text-sm text-center md:text-left max-w-xs">
               {t('footer.description')}
             </p>
+          </div>
+
+          {/* Company Information */}
+          <div className="flex flex-col items-center md:items-start space-y-2">
+            <h3 className="text-white font-semibold text-lg">{t('footer.companyTitle')}</h3>
+            <div className="text-white/70 text-xs space-y-1 text-center md:text-left">
+              <p className="font-medium text-white">{t('footer.companyInfo.name')}</p>
+              <p>{t('footer.companyInfo.fantasyName')}</p>
+              <p>{t('footer.companyInfo.cnpj')}</p>
+              <p>{t('footer.companyInfo.address')}</p>
+              <p>{t('footer.companyInfo.city')}</p>
+              <p>{t('footer.companyInfo.cep')}</p>
+              <a 
+                href={`mailto:${t('footer.companyInfo.email')}`}
+                className="text-orange-400 hover:text-orange-300 transition-colors"
+              >
+                {t('footer.companyInfo.email')}
+              </a>
+              <p>{t('footer.companyInfo.phone')}</p>
+            </div>
           </div>
 
           {/* Download Section */}

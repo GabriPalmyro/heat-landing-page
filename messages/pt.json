@@ -78,12 +78,23 @@
     "description": "O jogo mais quente para casais. Transforme momentos comuns em experiências inesquecíveis.",
     "downloadTitle": "Baixe Agora",
     "navigationTitle": "Navegação",
+    "companyTitle": "Empresa",
     "aboutNav": "Sobre",
     "featuresNav": "Recursos",
     "testimonialsNav": "Depoimentos",
     "copyright": "© 2024 Heat. Todos os direitos reservados.",
     "madeWith": "Feito com",
-    "forCouples": "para casais"
+    "forCouples": "para casais",
+    "companyInfo": {
+      "name": "HEAT APPS LTDA",
+      "fantasyName": "HEAT APP",
+      "cnpj": "CNPJ: 62.577.106/0001-00",
+      "address": "Av. Pedro Taques, 2205, Sala 2",
+      "city": "Maringá - PR",
+      "cep": "CEP: 87.033-000",
+      "email": "suporte@heatgame.com.br",
+      "phone": "(11) 2317-8368"
+    }
   },
   "download": {
     "installOn": "Instale na",

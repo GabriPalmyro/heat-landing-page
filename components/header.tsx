@@ -11,7 +11,9 @@ const translations = {
     support: 'Suporte',
     terms: 'Termos',
     closeMenu: 'Fechar menu',
-    openMenu: 'Abrir menu'
+    openMenu: 'Abrir menu',
+    company: 'HEAT APPS LTDA',
+    cnpj: 'CNPJ: 62.577.106/0001-00'
   },
   'en': {
     features: 'Features',
@@ -19,7 +21,9 @@ const translations = {
     support: 'Support',
     terms: 'Terms',
     closeMenu: 'Close menu',
-    openMenu: 'Open menu'
+    openMenu: 'Open menu',
+    company: 'HEAT APPS LTDA',
+    cnpj: 'CNPJ: 62.577.106/0001-00'
   },
   'es': {
     features: 'Características',
@@ -27,7 +31,9 @@ const translations = {
     support: 'Soporte',
     terms: 'Términos',
     closeMenu: 'Cerrar menú',
-    openMenu: 'Abrir menú'
+    openMenu: 'Abrir menú',
+    company: 'HEAT APPS LTDA',
+    cnpj: 'CNPJ: 62.577.106/0001-00'
   }
 }
 
@@ -94,9 +100,14 @@ export default function Header() {
             onClick={navigateToHome}
             className="transition-transform duration-300 group-hover:scale-110"
           />
-          <span className="ml-2 text-xl font-bold text-white cursor-pointer" onClick={navigateToHome}>
-            Heat
-          </span>
+          <div className="ml-2 flex flex-col">
+            <span className="text-xl font-bold text-white cursor-pointer" onClick={navigateToHome}>
+              Heat
+            </span>
+            <span className="text-xs text-white/60 hidden sm:block">
+              {t.cnpj}
+            </span>
+          </div>
         </div>
 
         {/* Navigation - Desktop */}

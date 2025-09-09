@@ -78,12 +78,23 @@
     "description": "The hottest game for couples. Transform ordinary moments into unforgettable experiences.",
     "downloadTitle": "Download Now",
     "navigationTitle": "Navigation",
+    "companyTitle": "Company",
     "aboutNav": "About",
     "featuresNav": "Features",
     "testimonialsNav": "Testimonials", 
     "copyright": "© 2024 Heat. All rights reserved.",
     "madeWith": "Made with",
-    "forCouples": "for couples"
+    "forCouples": "for couples",
+    "companyInfo": {
+      "name": "HEAT APPS LTDA",
+      "fantasyName": "HEAT APP",
+      "cnpj": "CNPJ: 62.577.106/0001-00",
+      "address": "Av. Pedro Taques, 2205, Room 2",
+      "city": "Maringá - PR, Brazil",
+      "cep": "ZIP: 87.033-000",
+      "email": "suporte@heatgame.com.br",
+      "phone": "+55 (11) 2317-8368"
+    }
   },
   "download": {
     "installOn": "Download on the",
