@@ -13,7 +13,6 @@ const translations = {
     closeMenu: 'Fechar menu',
     openMenu: 'Abrir menu',
     company: 'HEAT APPS LTDA',
-    cnpj: 'CNPJ: 62.577.106/0001-00'
   },
   'en': {
     features: 'Features',
@@ -23,7 +22,6 @@ const translations = {
     closeMenu: 'Close menu',
     openMenu: 'Open menu',
     company: 'HEAT APPS LTDA',
-    cnpj: 'CNPJ: 62.577.106/0001-00'
   },
   'es': {
     features: 'Características',
@@ -33,7 +31,6 @@ const translations = {
     closeMenu: 'Cerrar menú',
     openMenu: 'Abrir menú',
     company: 'HEAT APPS LTDA',
-    cnpj: 'CNPJ: 62.577.106/0001-00'
   }
 }
 
@@ -71,7 +68,7 @@ export default function Header() {
       window.location.href = `${mainPageUrl}#${id}`;
       return;
     }
-    
+
     const element = document.getElementById(id)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
@@ -100,14 +97,9 @@ export default function Header() {
             onClick={navigateToHome}
             className="transition-transform duration-300 group-hover:scale-110"
           />
-          <div className="ml-2 flex flex-col">
-            <span className="text-xl font-bold text-white cursor-pointer" onClick={navigateToHome}>
-              Heat
-            </span>
-            <span className="text-xs text-white/60 hidden sm:block">
-              {t.cnpj}
-            </span>
-          </div>
+          <span className="text-xl font-bold text-white cursor-pointer" onClick={navigateToHome}>
+            Heat
+          </span>
         </div>
 
         {/* Navigation - Desktop */}
