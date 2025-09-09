@@ -8,36 +8,27 @@ import { useRef } from "react"
 export default function TestimonialsSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false, amount: 0.3 })
-  const { t } = useTranslations()
+  const { t, isLoading } = useTranslations()
 
-  // Get testimonials array safely
-  const getTestimonials = () => {
-    try {
-      const testimonialsString = t('testimonials.items')
-      return JSON.parse(testimonialsString)
-    } catch {
-      // Fallback to default testimonials if parsing fails
-      return [
-        {
-          quote: "Heat transformou nosso relacionamento. Agora temos momentos muito mais divertidos e íntimos juntos.",
-          author: "Ana & João",
-          location: "São Paulo",
-        },
-        {
-          quote: "Nunca imaginei que um jogo pudesse nos aproximar tanto. Recomendo para todos os casais!",
-          author: "Marcos",
-          location: "Rio de Janeiro",
-        },
-        {
-          quote: "Perfeito para quebrar a rotina e adicionar um pouco de aventura ao relacionamento.",
-          author: "Carla & Pedro",
-          location: "Belo Horizonte",
-        },
-      ]
-    }
-  }
-
-  const testimonials = getTestimonials()
+  // Get testimonials array directly from translations
+  const testimonialsData = isLoading ? [] : t('testimonials.items')
+  const testimonials = Array.isArray(testimonialsData) ? testimonialsData : [
+    {
+      quote: "Heat transformed our relationship. Now we have much more fun and intimate moments together.",
+      author: "Ana & John",
+      location: "New York",
+    },
+    {
+      quote: "I never imagined that a game could bring us so close together. I recommend it to all couples!",
+      author: "Marcus",
+      location: "Los Angeles",
+    },
+    {
+      quote: "Perfect for breaking the routine and adding a little adventure to the relationship.",
+      author: "Carla & Peter",
+      location: "Miami",
+    },
+  ]
 
   return (
     <section id="testimonials" ref={ref} className="w-full py-20 bg-gradient-to-b from-[#3D3D3D] to-[#1D0611]">

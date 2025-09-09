@@ -34,7 +34,7 @@ export function useTranslations() {
   }, []);
 
   // Translation function with nested key support
-  const t = (key: string): string => {
+  const t = (key: string): any => {
     if (isLoading) return key;
     
     const keys = key.split('.');
@@ -48,7 +48,7 @@ export function useTranslations() {
       }
     }
     
-    return typeof value === 'string' ? value : key;
+    return value;
   };
 
   return { t, locale, isLoading };

@@ -167,10 +167,12 @@ function LanguageOption({
 function getLocalizedPathForCurrentPage(currentPath: string, targetLocale: Locale): string {
   // Remove locale prefix from current path
   let basePath = currentPath;
-  if (currentPath.startsWith('/en/')) {
-    basePath = currentPath.replace('/en', '') || '/';
-  } else if (currentPath.startsWith('/es/')) {
-    basePath = currentPath.replace('/es', '') || '/';
+  
+  // Handle exact matches and paths with trailing content
+  if (currentPath === '/en' || currentPath.startsWith('/en/')) {
+    basePath = currentPath.replace(/^\/en/, '') || '/';
+  } else if (currentPath === '/es' || currentPath.startsWith('/es/')) {
+    basePath = currentPath.replace(/^\/es/, '') || '/';
   }
 
   // Handle specific page mappings

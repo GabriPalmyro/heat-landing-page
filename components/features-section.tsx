@@ -8,7 +8,7 @@ import { useRef } from "react"
 export default function FeaturesSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false, amount: 0.2 })
-  const { t } = useTranslations()
+  const { t, isLoading } = useTranslations()
 
   const icons = [
     <Heart className="h-10 w-10 text-[#FF1D3E]" />,
@@ -19,43 +19,35 @@ export default function FeaturesSection() {
     <Users className="h-10 w-10 text-[#FF1D3E]" />,
   ]
 
-  // Get features array safely
-  const getFeatures = () => {
-    try {
-      const featuresString = t('features.items')
-      return JSON.parse(featuresString)
-    } catch {
-      // Fallback to default features if parsing fails
-      return [
-        {
-          title: "Focado em Casais",
-          description: "Desenvolvido especificamente para fortalecer a conexão entre parceiros."
-        },
-        {
-          title: "Níveis de Intensidade",
-          description: "Ajuste a intensidade do jogo de acordo com seu humor e preferências."
-        },
-        {
-          title: "Desafios Exclusivos",
-          description: "Conteúdo único que não encontrará em nenhum outro aplicativo."
-        },
-        {
-          title: "Privacidade Total",
-          description: "Seus dados e preferências permanecem seguros e privados."
-        },
-        {
-          title: "Interface Intuitiva",
-          description: "Design limpo e moderno para uma experiência de usuário perfeita."
-        },
-        {
-          title: "Conexão de Parceiros",
-          description: "Vincule-se ao seu parceiro para uma experiência personalizada."
-        }
-      ]
+  // Get features array directly from translations
+  const featuresData = isLoading ? [] : t('features.items')
+  console.log('Features data:', featuresData, 'Type:', typeof featuresData, 'Is Array:', Array.isArray(featuresData), 'Is Loading:', isLoading)
+  const features = Array.isArray(featuresData) ? featuresData : [
+    {
+      title: "Focused on Couples",
+      description: "Specifically developed to strengthen the connection between partners."
+    },
+    {
+      title: "Intensity Levels", 
+      description: "Adjust the game intensity according to your mood and preferences."
+    },
+    {
+      title: "Exclusive Challenges",
+      description: "Unique content that you won't find in any other app."
+    },
+    {
+      title: "Total Privacy",
+      description: "Your data and preferences remain safe and private."
+    },
+    {
+      title: "Intuitive Interface",
+      description: "Clean and modern design for a perfect user experience."
+    },
+    {
+      title: "Partner Connection",
+      description: "Link with your partner for a personalized experience."
     }
-  }
-
-  const features = getFeatures()
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
