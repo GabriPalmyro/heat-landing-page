@@ -1,10 +1,13 @@
 "use client"
 
+import { useTranslations } from "@/hooks/use-translations"
 import { Heart } from "lucide-react"
 import DownloadButtons from "./download-buttons"
 import Logo from "./logo"
 
 export default function Footer() {
+  const { t } = useTranslations()
+  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -37,37 +40,37 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-white/70 text-sm text-center md:text-left max-w-xs">
-              O jogo mais quente para casais. Transforme momentos comuns em experiências inesquecíveis.
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Download Section */}
           <div className="flex flex-col items-center space-y-4">
-            <h3 className="text-white font-semibold text-lg">Baixe Agora</h3>
+            <h3 className="text-white font-semibold text-lg">{t('footer.downloadTitle')}</h3>
             <DownloadButtons variant="secondary" size="sm" />
           </div>
 
           {/* Navigation Links */}
           <div className="flex flex-col items-center md:items-end space-y-4">
-            <h3 className="text-white font-semibold text-lg">Navegação</h3>
+            <h3 className="text-white font-semibold text-lg">{t('footer.navigationTitle')}</h3>
             <nav className="flex flex-col space-y-2 text-center md:text-right">
               <button
                 onClick={() => scrollToSection("about")}
                 className="text-white/70 hover:text-white transition-colors text-sm"
               >
-                Sobre
+                {t('footer.aboutNav')}
               </button>
               <button
                 onClick={() => scrollToSection("features")}
                 className="text-white/70 hover:text-white transition-colors text-sm"
               >
-                Recursos
+                {t('footer.featuresNav')}
               </button>
               <button
                 onClick={() => scrollToSection("testimonials")}
                 className="text-white/70 hover:text-white transition-colors text-sm"
               >
-                Depoimentos
+                {t('footer.testimonialsNav')}
               </button>
               <div className="pt-2 border-t border-white/10">
                 <p className="text-white/50 text-xs mb-2">Português</p>
@@ -134,12 +137,12 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-white/50 text-sm">
-            © 2024 Heat. Todos os direitos reservados.
+            {t('footer.copyright')}
           </p>
           <div className="flex items-center space-x-1 text-white/50 text-sm">
-            <span>Feito com</span>
+            <span>{t('footer.madeWith')}</span>
             <Heart className="h-4 w-4 text-[#FF1D3E] fill-current" />
-            <span>para casais</span>
+            <span>{t('footer.forCouples')}</span>
           </div>
         </div>
       </div>

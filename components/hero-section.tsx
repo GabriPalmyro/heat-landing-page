@@ -1,10 +1,28 @@
 "use client"
 
+import { useTranslations } from "@/hooks/use-translations"
 import { motion } from "framer-motion"
 import DownloadButtons from "./download-buttons"
 import ScratchableCard from "./scratchable-card"
 
 export default function HeroSection() {
+  const { t } = useTranslations()
+  
+  // Get features array safely
+  const getHeroFeatures = (): string[] => {
+    try {
+      const featuresString = t('hero.features')
+      return Array.isArray(featuresString) ? featuresString : JSON.parse(featuresString)
+    } catch {
+      // Fallback if parsing fails
+      return [
+        t('hero.features.0') || 'Relacionamento a distância',
+        t('hero.features.1') || 'Posições e desafios', 
+        t('hero.features.2') || 'Roleta e notificações',
+        t('hero.features.3') || 'Perguntas íntimas'
+      ]
+    }
+  }
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
@@ -34,15 +52,13 @@ export default function HeroSection() {
             className="flex-1 text-center lg:text-left max-w-2xl mx-auto lg:mx-0 order-1 lg:order-1"
           >
             {/* Main Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+                        <motion.h1
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 lg:mb-6 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 lg:mb-6"
             >
-              Faça Sexo como
-              <br />
-              nunca antes
+              {t('hero.title')}
             </motion.h1>
 
             {/* Subtitle */}
@@ -52,9 +68,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-base sm:text-lg md:text-xl text-white/90 mb-6 lg:mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              Desperte o seu lado sexual com o seu amor,
-              com mais de mil desafios do leve ao extremo,
-              com posições e fetiches
+              {t('hero.subtitle')}
             </motion.p>
             {/* Features List */}
             <motion.div
@@ -63,12 +77,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="space-y-3 lg:space-y-4 mb-6 lg:mb-8 text-center max-w-md mx-auto lg:text-left lg:mx-0"
             >
-              {[
-              "Relacionamento a distância",
-              "Posições e desafios",
-              "Roleta e notificações",
-              "Perguntas íntimas"
-              ].map((feature, index) => (
+              {getHeroFeatures().map((feature: string, index: number) => (
               <div key={index} className="flex items-center justify-center gap-3 lg:justify-start">
                 <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-[#FF1D3E] flex items-center justify-center flex-shrink-0">
                 <svg className="w-3 h-3 lg:w-4 lg:h-4 text-white" viewBox="0 0 20 20" fill="currentColor">
@@ -104,7 +113,7 @@ export default function HeroSection() {
                   ))}
                 </div>
                 <span className="text-white text-xs lg:text-sm">
-                  4,7/5,0 - 12.551 avaliações
+                  {t('hero.rating')}
                 </span>
               </div>
             </motion.div>
@@ -124,9 +133,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 lg:mb-6 text-center"
             >
-              Raspe e desbloqueie
-              <br />
-              uma nova posição 😈
+              {t('hero.cardTitle')}
             </motion.h2>
 
             <div className="w-full max-w-[220px] sm:max-w-[250px] lg:max-w-[280px]">

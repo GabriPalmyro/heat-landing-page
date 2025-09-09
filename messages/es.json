@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "about": "Acerca",
+    "features": "Características",
+    "testimonials": "Testimonios",
+    "playNow": "Jugar Ahora",
+    "home": "Inicio",
+    "support": "Soporte",
+    "termsOfUse": "Términos de Uso",
+    "privacyPolicy": "Política de Privacidad",
+    "accountDeletion": "Eliminación de Cuenta"
+  },
+  "hero": {
+    "title": "Experimenta la intimidad sexual como nunca antes",
+    "subtitle": "Despierta tu lado sexual con tu amor, con más de mil desafíos de lo suave a lo extremo, con posiciones y fetiches",
+    "downloadText": "¡Descarga ahora y comienza a jugar!",
+    "features": [
+      "Relación a distancia",
+      "Posiciones y desafíos",
+      "Ruleta y notificaciones", 
+      "Preguntas íntimas"
+    ],
+    "cardTitle": "Rasca y desbloquea una nueva posición 😈",
+    "rating": "4,7/5,0 - 12.551 reseñas"
+  },
+  "features": {
+    "title": "Características Exclusivas",
+    "subtitle": "Descubre qué hace de Heat el mejor juego para parejas",
+    "items": [
+      {
+        "title": "Enfocado en Parejas",
+        "description": "Desarrollado específicamente para fortalecer la conexión entre compañeros."
+      },
+      {
+        "title": "Niveles de Intensidad",
+        "description": "Ajusta la intensidad del juego según tu estado de ánimo y preferencias."
+      },
+      {
+        "title": "Desafíos Exclusivos", 
+        "description": "Contenido único que no encontrarás en ninguna otra aplicación."
+      },
+      {
+        "title": "Privacidad Total",
+        "description": "Tus datos y preferencias permanecen seguros y privados."
+      },
+      {
+        "title": "Interfaz Intuitiva",
+        "description": "Diseño limpio y moderno para una experiencia de usuario perfecta."
+      },
+      {
+        "title": "Conexión de Parejas",
+        "description": "Vincula con tu pareja para una experiencia personalizada."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Usuarios",
+    "subtitle": "Ve cómo Heat está transformando relaciones en todo el mundo",
+    "items": [
+      {
+        "quote": "Heat transformó nuestra relación. Ahora tenemos momentos mucho más divertidos e íntimos juntos.",
+        "author": "Ana & Juan",
+        "location": "Madrid"
+      },
+      {
+        "quote": "Nunca imaginé que un juego pudiera acercarnos tanto. ¡Lo recomiendo a todas las parejas!",
+        "author": "Marcos",
+        "location": "Barcelona"
+      },
+      {
+        "quote": "Perfecto para romper la rutina y agregar un poco de aventura a la relación.",
+        "author": "Carla & Pedro",
+        "location": "Sevilla"
+      }
+    ]
+  },
+  "footer": {
+    "description": "El juego más caliente para parejas. Transforma momentos comunes en experiencias inolvidables.",
+    "downloadTitle": "Descargar Ahora",
+    "navigationTitle": "Navegación",
+    "aboutNav": "Acerca",
+    "featuresNav": "Características",
+    "testimonialsNav": "Testimonios", 
+    "copyright": "© 2024 Heat. Todos los derechos reservados.",
+    "madeWith": "Hecho con",
+    "forCouples": "para parejas"
+  },
+  "download": {
+    "installOn": "Descargar en",
+    "appStore": "App Store",
+    "playStore": "Play Store",
+    "or": "O"
+  },
+  "pages": {
+    "support": {
+      "title": "Soporte — Heat Game 🔥",
+      "description": "¿Necesitas ayuda? ¡Estamos aquí para ti!"
+    },
+    "termsOfUse": {
+      "title": "Términos de Uso — Heat Game 🔥",
+      "description": "Lee nuestros términos de uso"
+    },
+    "privacyPolicy": {
+      "title": "Política de Privacidad — Heat Game 🔥",
+      "description": "Cómo protegemos tus datos"
+    },
+    "accountDeletion": {
+      "title": "Eliminación de Cuenta — Heat Game 🔥",
+      "description": "Cómo eliminar tu cuenta"
+    }
+  }
+}

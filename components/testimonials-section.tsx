@@ -1,31 +1,43 @@
 "use client"
 
-import { useRef } from "react"
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
+import { useTranslations } from "@/hooks/use-translations"
+import { motion, useInView } from "framer-motion"
 import { Star } from "lucide-react"
+import { useRef } from "react"
 
 export default function TestimonialsSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false, amount: 0.3 })
+  const { t } = useTranslations()
 
-  const testimonials = [
-    {
-      quote: "Heat transformou nosso relacionamento. Agora temos momentos muito mais divertidos e íntimos juntos.",
-      author: "Ana & João",
-      location: "São Paulo",
-    },
-    {
-      quote: "Nunca imaginei que um jogo pudesse nos aproximar tanto. Recomendo para todos os casais!",
-      author: "Marcos",
-      location: "Rio de Janeiro",
-    },
-    {
-      quote: "Perfeito para quebrar a rotina e adicionar um pouco de aventura ao relacionamento.",
-      author: "Carla & Pedro",
-      location: "Belo Horizonte",
-    },
-  ]
+  // Get testimonials array safely
+  const getTestimonials = () => {
+    try {
+      const testimonialsString = t('testimonials.items')
+      return JSON.parse(testimonialsString)
+    } catch {
+      // Fallback to default testimonials if parsing fails
+      return [
+        {
+          quote: "Heat transformou nosso relacionamento. Agora temos momentos muito mais divertidos e íntimos juntos.",
+          author: "Ana & João",
+          location: "São Paulo",
+        },
+        {
+          quote: "Nunca imaginei que um jogo pudesse nos aproximar tanto. Recomendo para todos os casais!",
+          author: "Marcos",
+          location: "Rio de Janeiro",
+        },
+        {
+          quote: "Perfeito para quebrar a rotina e adicionar um pouco de aventura ao relacionamento.",
+          author: "Carla & Pedro",
+          location: "Belo Horizonte",
+        },
+      ]
+    }
+  }
+
+  const testimonials = getTestimonials()
 
   return (
     <section id="testimonials" ref={ref} className="w-full py-20 bg-gradient-to-b from-[#3D3D3D] to-[#1D0611]">
@@ -36,14 +48,14 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">O Que Nossos Usuários Dizem</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('testimonials.title')}</h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">
-            Veja como o Heat está transformando relacionamentos por todo o Brasil
+            {t('testimonials.subtitle')}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial: any, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}

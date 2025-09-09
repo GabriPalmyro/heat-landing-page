@@ -1,5 +1,6 @@
 "use client"
 
+import { useTranslations } from "@/hooks/use-translations"
 import { motion, useInView } from "framer-motion"
 import { Flame, Heart, Shield, Sparkles, Users, Zap } from "lucide-react"
 import { useRef } from "react"
@@ -7,39 +8,54 @@ import { useRef } from "react"
 export default function FeaturesSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false, amount: 0.2 })
+  const { t } = useTranslations()
 
-  const features = [
-    {
-      icon: <Heart className="h-10 w-10 text-[#FF1D3E]" />,
-      title: "Focado em Casais",
-      description: "Desenvolvido especificamente para fortalecer a conexão entre parceiros.",
-    },
-    {
-      icon: <Flame className="h-10 w-10 text-[#FF1D3E]" />,
-      title: "Níveis de Intensidade",
-      description: "Ajuste a intensidade do jogo de acordo com seu humor e preferências.",
-    },
-    {
-      icon: <Sparkles className="h-10 w-10 text-[#FF1D3E]" />,
-      title: "Desafios Exclusivos",
-      description: "Conteúdo único que não encontrará em nenhum outro aplicativo.",
-    },
-    {
-      icon: <Shield className="h-10 w-10 text-[#FF1D3E]" />,
-      title: "Privacidade Total",
-      description: "Seus dados e preferências permanecem seguros e privados.",
-    },
-    {
-      icon: <Zap className="h-10 w-10 text-[#FF1D3E]" />,
-      title: "Interface Intuitiva",
-      description: "Design limpo e moderno para uma experiência de usuário perfeita.",
-    },
-    {
-      icon: <Users className="h-10 w-10 text-[#FF1D3E]" />,
-      title: "Conexão de Parceiros",
-      description: "Vincule-se ao seu parceiro para uma experiência personalizada.",
-    },
+  const icons = [
+    <Heart className="h-10 w-10 text-[#FF1D3E]" />,
+    <Flame className="h-10 w-10 text-[#FF1D3E]" />,
+    <Sparkles className="h-10 w-10 text-[#FF1D3E]" />,
+    <Shield className="h-10 w-10 text-[#FF1D3E]" />,
+    <Zap className="h-10 w-10 text-[#FF1D3E]" />,
+    <Users className="h-10 w-10 text-[#FF1D3E]" />,
   ]
+
+  // Get features array safely
+  const getFeatures = () => {
+    try {
+      const featuresString = t('features.items')
+      return JSON.parse(featuresString)
+    } catch {
+      // Fallback to default features if parsing fails
+      return [
+        {
+          title: "Focado em Casais",
+          description: "Desenvolvido especificamente para fortalecer a conexão entre parceiros."
+        },
+        {
+          title: "Níveis de Intensidade",
+          description: "Ajuste a intensidade do jogo de acordo com seu humor e preferências."
+        },
+        {
+          title: "Desafios Exclusivos",
+          description: "Conteúdo único que não encontrará em nenhum outro aplicativo."
+        },
+        {
+          title: "Privacidade Total",
+          description: "Seus dados e preferências permanecem seguros e privados."
+        },
+        {
+          title: "Interface Intuitiva",
+          description: "Design limpo e moderno para uma experiência de usuário perfeita."
+        },
+        {
+          title: "Conexão de Parceiros",
+          description: "Vincule-se ao seu parceiro para uma experiência personalizada."
+        }
+      ]
+    }
+  }
+
+  const features = getFeatures()
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -78,7 +94,7 @@ export default function FeaturesSection() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-white mb-4"
           >
-            Recursos Exclusivos
+            {t('features.title')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -86,7 +102,7 @@ export default function FeaturesSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-white/80 max-w-2xl mx-auto"
           >
-            Descubra o que torna o Heat o melhor jogo para casais
+            {t('features.subtitle')}
           </motion.p>
         </div>
 
@@ -96,13 +112,13 @@ export default function FeaturesSection() {
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {features.map((feature, index) => (
+          {features.map((feature: any, index: number) => (
             <motion.div
               key={index}
               variants={itemVariants}
               className="bg-[#3D3D3D] rounded-xl p-6 hover:bg-[#4D4D4D] transition-colors duration-300 transform hover:scale-105 hover:shadow-xl"
             >
-              <div className="mb-4">{feature.icon}</div>
+              <div className="mb-4">{icons[index]}</div>
               <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
               <p className="text-white/70">{feature.description}</p>
             </motion.div>

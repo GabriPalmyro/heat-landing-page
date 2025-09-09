@@ -6,26 +6,26 @@ import Logo from "./logo"
 
 const translations = {
   'pt-br': {
-    about: 'Sobre',
     features: 'Recursos',
     testimonials: 'Depoimentos',
-    playNow: 'Jogar Agora',
+    support: 'Suporte',
+    terms: 'Termos',
     closeMenu: 'Fechar menu',
     openMenu: 'Abrir menu'
   },
   'en': {
-    about: 'About',
     features: 'Features',
     testimonials: 'Testimonials',
-    playNow: 'Play Now',
+    support: 'Support',
+    terms: 'Terms',
     closeMenu: 'Close menu',
     openMenu: 'Open menu'
   },
   'es': {
-    about: 'Acerca',
     features: 'Características',
     testimonials: 'Testimonios',
-    playNow: 'Jugar Ahora',
+    support: 'Soporte',
+    terms: 'Términos',
     closeMenu: 'Cerrar menú',
     openMenu: 'Abrir menú'
   }
@@ -59,17 +59,22 @@ export default function Header() {
 
   const scrollToSection = (id: string) => {
     setIsMenuOpen(false)
+    // If not on main page, navigate to main page first
+    if (window.location.pathname !== '/' && !window.location.pathname.startsWith('/#')) {
+      const mainPageUrl = currentLanguage === 'pt-br' ? '/' : `/${currentLanguage}`;
+      window.location.href = `${mainPageUrl}#${id}`;
+      return;
+    }
+    
     const element = document.getElementById(id)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
   }
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
+  const navigateToHome = () => {
+    const mainPageUrl = currentLanguage === 'pt-br' ? '/' : `/${currentLanguage}`;
+    window.location.href = mainPageUrl;
   }
 
   const t = translations[currentLanguage as keyof typeof translations]
@@ -86,13 +91,42 @@ export default function Header() {
           <Logo
             size={"small"}
             withGlow={true}
-            onClick={scrollToTop}
+            onClick={navigateToHome}
             className="transition-transform duration-300 group-hover:scale-110"
           />
-          <span className="ml-2 text-xl font-bold text-white cursor-pointer" onClick={scrollToTop}>
+          <span className="ml-2 text-xl font-bold text-white cursor-pointer" onClick={navigateToHome}>
             Heat
           </span>
         </div>
+
+        {/* Navigation - Desktop */}
+        <nav className="hidden md:flex items-center space-x-6">
+          <button
+            onClick={() => scrollToSection("features")}
+            className="text-white hover:text-orange-400 transition-colors duration-200"
+          >
+            {t.features}
+          </button>
+          <button
+            onClick={() => scrollToSection("testimonials")}
+            className="text-white hover:text-orange-400 transition-colors duration-200"
+          >
+            {t.testimonials}
+          </button>
+          <a
+            href={currentLanguage === 'pt-br' ? '/suporte' : `/${currentLanguage}/support`}
+            className="text-white hover:text-orange-400 transition-colors duration-200"
+          >
+            {t.support}
+          </a>
+          <a
+            href={currentLanguage === 'pt-br' ? '/termos-de-uso' : `/${currentLanguage}/terms-of-use`}
+            className="text-white hover:text-orange-400 transition-colors duration-200"
+          >
+            {t.terms}
+          </a>
+        </nav>
+
         <LanguageSelector />
       </div>
     </header>

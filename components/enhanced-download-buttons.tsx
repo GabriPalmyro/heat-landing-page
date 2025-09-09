@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { useTranslations } from "@/hooks/use-translations"
 import { useState } from "react"
 import GooglePlayRestrictionDialog from "./google-play-restriction-dialog"
 
@@ -8,7 +9,7 @@ interface DownloadButtonsProps {
   variant?: "primary" | "secondary"
   size?: "sm" | "lg"
   className?: string
-  language?: 'pt-br' | 'en' | 'es'
+  t: (key: string) => string
 }
 
 // Ícone customizado da Apple
@@ -25,36 +26,15 @@ const GooglePlayIcon = ({ className }: { className?: string }) => (
   </svg>
 )
 
-const languageTexts = {
-  'pt-br': {
-    installOn: 'Instale na',
-    appStore: 'App Store',
-    playStore: 'Play Store',
-    or: 'Ou'
-  },
-  'en': {
-    installOn: 'Download on the',
-    appStore: 'App Store',
-    playStore: 'Play Store',
-    or: 'Or'
-  },
-  'es': {
-    installOn: 'Descargar en',
-    appStore: 'App Store',
-    playStore: 'Play Store',
-    or: 'O'
-  }
-}
-
 export default function EnhancedDownloadButtons({ 
   variant = "primary", 
   size = "lg", 
   className = "",
-  language = "pt-br"
+  t
 }: DownloadButtonsProps) {
   const [showRestrictionDialog, setShowRestrictionDialog] = useState(false)
+  const { locale } = useTranslations()
   
-  const texts = languageTexts[language]
   const isPrimary = variant === "primary"
   const isLarge = size === "lg"
   
@@ -83,17 +63,17 @@ export default function EnhancedDownloadButtons({
             <AppleIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
             <span className="flex flex-col items-center -space-y-1">
               <span className={`${isLarge ? 'text-base' : 'text-sm'} font-light ${isPrimary ? 'text-[#FF1D3E]/60' : 'text-white/60'}`}>
-                {texts.installOn}
+                {t('download.installOn')}
               </span>
               <span className={`font-bold ${isLarge ? 'text-xl' : 'text-lg'}`}>
-                {texts.appStore}
+                {t('download.appStore')}
               </span>
             </span>
           </a>
         </Button>
         
         <div className="text-center">
-          <span className="text-white text-sm font-medium">{texts.or}</span>
+          <span className="text-white text-sm font-medium">{t('download.or')}</span>
         </div>
         
         <Button
@@ -104,10 +84,10 @@ export default function EnhancedDownloadButtons({
           <GooglePlayIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
           <span className="flex flex-col items-center -space-y-1">
             <span className={`${isLarge ? 'text-base' : 'text-sm'} font-light ${isPrimary ? 'text-[#FF1D3E]/60' : 'text-white/60'}`}>
-              {texts.installOn}
+              {t('download.installOn')}
             </span>
             <span className={`font-bold ${isLarge ? 'text-xl' : 'text-lg'}`}>
-              {texts.playStore}
+              {t('download.playStore')}
             </span>
           </span>
           {/* Overlay para indicar restrição
@@ -122,7 +102,7 @@ export default function EnhancedDownloadButtons({
       <GooglePlayRestrictionDialog 
         isOpen={showRestrictionDialog}
         onClose={() => setShowRestrictionDialog(false)}
-        language={language}
+        language={locale === 'pt' ? 'pt-br' : locale}
       />
     </>
   )

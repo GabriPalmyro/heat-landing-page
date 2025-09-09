@@ -12,8 +12,7 @@ export default function LandingPage() {
       <Header />
       <TikTokIOSBanner />
       <AutoMobileRedirect />
-      {/* <MobileRedirectBanner /> */}
-  <main className="min-h-screen pt-[72px] md:pt-[96px]">
+      <main className="min-h-screen pt-[72px] md:pt-[96px]">
         <HeroSection />
         <FeaturesSection />
         <TestimonialsSection />

@@ -36,13 +36,14 @@ export default function SupportEnPage() {
           </div>
           
           <p className="text-center text-gray-400 mb-12">
-            <strong>Last updated:</strong> August 30, 2025
+            <strong>Last updated:</strong> 08/30/2025
           </p>
           
           <div className="text-gray-300 space-y-8">
             <p className="text-lg text-center">
-              If you're having problems or have questions about <strong className="text-orange-500">Heat App</strong>, 
-              we're here to help! Follow the instructions below to find solutions, contact us or report any issues.
+              If you're having problems or have questions about the <strong className="text-orange-500">Heat App</strong>, 
+              we're here to help! Follow the instructions below to find solutions, contact us, or 
+              report any issues.
             </p>
 
             <section>
@@ -51,11 +52,11 @@ export default function SupportEnPage() {
               <div className="bg-yellow-900/20 p-6 rounded-lg border border-yellow-500/30 mb-8">
                 <h3 className="text-yellow-400 font-semibold mb-4">App Temporarily Unavailable on Android</h3>
                 <p className="text-sm mb-4">
-                  Unfortunately, our Heat app is temporarily blocked on Google Play Store due to some store restrictions. 
-                  <strong> We are working hard to resolve this situation as quickly as possible.</strong>
+                  Unfortunately, our Heat app is temporarily blocked on the Google Play Store due to some store restrictions. 
+                  <strong> We're working hard to resolve this situation as quickly as possible.</strong>
                 </p>
                 <p className="text-sm mb-4">
-                  <strong>We are exploring alternatives such as:</strong>
+                  <strong>We're exploring alternatives such as:</strong>
                 </p>
                 <ul className="text-sm space-y-1 list-disc list-inside mb-4">
                   <li>Redistribution through other trusted platforms</li>
@@ -77,20 +78,22 @@ export default function SupportEnPage() {
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-orange-400 mb-4">1.1 Login Problems</h3>
+                  <h3 className="text-xl font-semibold text-orange-400 mb-4">1.1 Login Issues</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start space-x-3">
                       <span className="text-orange-500 font-bold text-lg">•</span>
                       <div>
                         <strong className="text-orange-400">Login error</strong>: Make sure your internet connection 
-                        is working properly. If you're using Google or Apple login, verify that you're connected with the correct account.
+                        is working properly. If you're using Google or Apple login, 
+                        verify you're connected with the correct account.
                       </div>
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="text-orange-500 font-bold text-lg">•</span>
                       <div>
-                        <strong className="text-orange-400">Can't access my account</strong>: If you forgot your password 
-                        or can't access your account, try resetting your password or contact our support team.
+                        <strong className="text-orange-400">Can't access my account</strong>: If you forgot 
+                        your password or can't access your account, try resetting your password or contact our 
+                        support team.
                       </div>
                     </li>
                   </ul>
@@ -102,15 +105,15 @@ export default function SupportEnPage() {
                     <li className="flex items-start space-x-3">
                       <span className="text-orange-500 font-bold text-lg">•</span>
                       <div>
-                        <strong className="text-orange-400">Performance issues</strong>: If the game is running slowly, 
-                        try closing other background apps or restarting your device.
+                        <strong className="text-orange-400">Performance issues</strong>: If the game is running 
+                        slowly, try closing other background apps or restarting your device.
                       </div>
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="text-orange-500 font-bold text-lg">•</span>
                       <div>
-                        <strong className="text-orange-400">Content loading error</strong>: If content doesn't load properly, 
-                        try checking if your internet connection is stable.
+                        <strong className="text-orange-400">Content loading error</strong>: If content doesn't 
+                        load properly, try checking if your internet connection is stable.
                       </div>
                     </li>
                   </ul>
@@ -122,8 +125,9 @@ export default function SupportEnPage() {
                     <li className="flex items-start space-x-3">
                       <span className="text-orange-500 font-bold text-lg">•</span>
                       <div>
-                        <strong className="text-orange-400">Premium subscription issues</strong>: If you're having trouble 
-                        accessing Premium features after purchase, try logging out and back into your account or contact our support team.
+                        <strong className="text-orange-400">Premium subscription issues</strong>: If you have 
+                        trouble accessing Premium features after purchase, try logging out and back into 
+                        your account or contact our support team.
                       </div>
                     </li>
                   </ul>
@@ -137,8 +141,8 @@ export default function SupportEnPage() {
               <h2 className="text-2xl font-semibold text-orange-500 mb-6">2. How to Contact Us</h2>
               
               <p className="mb-6">
-                If you didn't find a solution to your problem or have other questions, our support team is available to help you. 
-                Follow the steps below to get in touch:
+                If you haven't found a solution to your problem or have other questions, our support team 
+                is available to help you. Follow the steps below to get in touch:
               </p>
 
               <div>
@@ -161,14 +165,15 @@ export default function SupportEnPage() {
               <div>
                 <h3 className="text-xl font-semibold text-orange-400 mb-4">2.2 Important Information for Support</h3>
                 <p className="mb-4">
-                  When contacting us, please provide the following information so we can help you more efficiently:
+                  When contacting us, please provide the following information so we can 
+                  help you more efficiently:
                 </p>
                 
                 <div className="bg-gray-900/50 p-6 rounded-lg">
                   <ul className="space-y-2 text-gray-300">
                     <li>• Description of the problem or question.</li>
                     <li>• Your device model and operating system version (iOS or Android).</li>
-                    <li>• Screenshot or any other details that might help understand the problem.</li>
+                    <li>• Screenshot or any other detail that might help understand the problem.</li>
                   </ul>
                 </div>
               </div>
@@ -183,8 +188,8 @@ export default function SupportEnPage() {
                 <div className="bg-gray-800/30 p-6 rounded-lg">
                   <h3 className="text-lg font-semibold text-orange-400 mb-3">3.1 Can I play alone or only with friends?</h3>
                   <p>
-                    Yes, you can play alone or with friends. <strong className="text-orange-500">Heat App</strong> offers 
-                    different game modes for both individual and group play.
+                    Yes, you can play alone or with friends. The <strong className="text-orange-500">Heat App</strong> offers 
+                    different game modes for playing individually or in groups.
                   </p>
                 </div>
 
@@ -219,7 +224,7 @@ export default function SupportEnPage() {
                 >
                   Privacy Policy
                 </a>{" "}
-                within the app or on our official website.
+                in the app or on our official website.
               </p>
             </section>
 
@@ -227,7 +232,7 @@ export default function SupportEnPage() {
 
             <div className="bg-gray-800/50 p-6 rounded-lg text-center space-y-4">
               <p>
-                <strong>Note</strong>: We are constantly working to improve{" "}
+                <strong>Note</strong>: We're constantly working to improve the{" "}
                 <strong className="text-orange-500">Heat App</strong> and ensure the best possible experience for our users. 
                 Thank you for choosing Heat and we hope you continue having fun!
               </p>
