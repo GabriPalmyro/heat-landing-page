@@ -1,5 +1,7 @@
 "use client"
 
+import { getLocaleFromPathname } from '@/src/i18n'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 export interface MobileRedirectOptions {
@@ -20,6 +22,7 @@ export function useMobileRedirect(options: MobileRedirectOptions = {}) {
   const config = { ...defaultOptions, ...options }
   const [isFromTikTok, setIsFromTikTok] = useState(false)
   const [mobileOS, setMobileOS] = useState<'ios' | 'android' | null>(null)
+  const router = useRouter()
 
   useEffect(() => {
     // Detecta se veio do TikTok
@@ -56,7 +59,12 @@ export function useMobileRedirect(options: MobileRedirectOptions = {}) {
       if (detectedOS === 'ios') {
         window.location.href = config.appStoreUrl
       } else if (detectedOS === 'android') {
-        window.location.href = config.googlePlayUrl
+        // Redirect to appropriate Android page based on locale
+        const currentLocale = getLocaleFromPathname(window.location.pathname)
+        const androidPath = currentLocale === 'pt' ? '/android' : 
+                           currentLocale === 'en' ? '/en/android' :
+                           '/es/android'
+        router.push(androidPath)
       }
     }
 
@@ -64,7 +72,7 @@ export function useMobileRedirect(options: MobileRedirectOptions = {}) {
     const timer = setTimeout(redirectToStore, config.redirectDelay)
 
     return () => clearTimeout(timer)
-  }, [config])
+  }, [config, router])
 
   return {
     isRedirectEnabled: config.enableRedirect,

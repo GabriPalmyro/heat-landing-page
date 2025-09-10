@@ -2,6 +2,7 @@
 
 import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 interface GooglePlayRestrictionDialogProps {
   isOpen: boolean
@@ -21,6 +22,7 @@ const messages = {
     ],
     commitment: 'Nossa equipe está dedicada a garantir que você tenha acesso ao Heat em breve. Agradecemos sua paciência e compreensão.',
     action: 'Entendi',
+    androidAction: 'Baixar APK Diretamente',
     ios_available: '💡 O aplicativo continua totalmente disponível na App Store para dispositivos iOS!'
   },
   'en': {
@@ -34,6 +36,7 @@ const messages = {
     ],
     commitment: 'Our team is dedicated to ensuring you have access to Heat soon. We appreciate your patience and understanding.',
     action: 'Got it',
+    androidAction: 'Download APK Directly',
     ios_available: '💡 The app remains fully available on the App Store for iOS devices!'
   },
   'es': {
@@ -47,6 +50,7 @@ const messages = {
     ],
     commitment: 'Nuestro equipo está dedicado a asegurar que tengas acceso a Heat pronto. Agradecemos tu paciencia y comprensión.',
     action: 'Entendido',
+    androidAction: 'Descargar APK Directamente',
     ios_available: '💡 ¡La aplicación sigue completamente disponible en la App Store para dispositivos iOS!'
   }
 }
@@ -57,6 +61,16 @@ export default function GooglePlayRestrictionDialog({
   language 
 }: GooglePlayRestrictionDialogProps) {
   const content = messages[language]
+  const router = useRouter()
+
+  const handleAndroidRedirect = () => {
+    onClose()
+    // Determine the appropriate Android page based on language
+    const androidPath = language === 'pt-br' ? '/android' : 
+                       language === 'en' ? '/en/android' :
+                       '/es/android'
+    router.push(androidPath)
+  }
 
   return (
     <AlertDialog open={isOpen} onOpenChange={onClose}>
@@ -90,15 +104,21 @@ export default function GooglePlayRestrictionDialog({
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
+        <AlertDialogFooter className="flex gap-2">
           <AlertDialogAction asChild>
             <Button 
               onClick={onClose}
-              className="w-full bg-[#FF1D3E] hover:bg-[#F45454] text-white rounded-lg"
+              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white rounded-lg"
             >
               {content.action}
             </Button>
           </AlertDialogAction>
+          <Button 
+            onClick={handleAndroidRedirect}
+            className="flex-1 bg-[#FF1D3E] hover:bg-[#F45454] text-white rounded-lg"
+          >
+            {content.androidAction}
+          </Button>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

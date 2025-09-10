@@ -1,12 +1,17 @@
+"use client"
+
 import Footer from "@/components/footer"
 import Header from "@/components/header"
-
-export const metadata = {
-  title: "Support - Heat Game",
-  description: "Find solutions to common problems, frequently asked questions and how to contact our support team.",
-}
+import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 export default function SupportEnPage() {
+  const router = useRouter()
+  
+  const handleAndroidRedirect = () => {
+    router.push('/en/android')
+  }
+
   return (
     <main className="flex min-h-screen flex-col">
       <Header />
@@ -67,9 +72,17 @@ export default function SupportEnPage() {
                   <strong className="text-green-400">✅ Available on:</strong> App Store (iOS)<br/>
                   <strong className="text-red-400">⏸️ Temporarily unavailable on:</strong> Google Play Store (Android)
                 </p>
-                <p className="text-sm">
+                <p className="text-sm mb-4">
                   <strong>Our team is dedicated to ensuring you have access to Heat soon. We appreciate your patience and understanding.</strong>
                 </p>
+                <div className="mt-4">
+                  <Button 
+                    onClick={handleAndroidRedirect}
+                    className="bg-[#FF1D3E] hover:bg-[#F45454] text-white"
+                  >
+                    📱 Download APK for Android
+                  </Button>
+                </div>
               </div>
             </section>
 

@@ -1,12 +1,17 @@
+"use client"
+
 import Footer from "@/components/footer"
 import Header from "@/components/header"
-
-export const metadata = {
-  title: "Soporte - Heat Game",
-  description: "Encuentra soluciones a problemas comunes, preguntas frecuentes y cómo contactar a nuestro equipo de soporte.",
-}
+import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 export default function SupportEsPage() {
+  const router = useRouter()
+  
+  const handleAndroidRedirect = () => {
+    router.push('/es/android')
+  }
+
   return (
     <main className="flex min-h-screen flex-col">
       <Header />
@@ -67,9 +72,17 @@ export default function SupportEsPage() {
                   <strong className="text-green-400">✅ Disponible en:</strong> App Store (iOS)<br/>
                   <strong className="text-red-400">⏸️ Temporalmente no disponible en:</strong> Google Play Store (Android)
                 </p>
-                <p className="text-sm">
+                <p className="text-sm mb-4">
                   <strong>Nuestro equipo está dedicado a asegurar que tengas acceso a Heat pronto. Agradecemos tu paciencia y comprensión.</strong>
                 </p>
+                <div className="mt-4">
+                  <Button 
+                    onClick={handleAndroidRedirect}
+                    className="bg-[#FF1D3E] hover:bg-[#F45454] text-white"
+                  >
+                    📱 Descargar APK para Android
+                  </Button>
+                </div>
               </div>
             </section>
 

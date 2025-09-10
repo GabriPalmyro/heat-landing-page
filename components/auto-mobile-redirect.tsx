@@ -11,7 +11,8 @@ interface AutoMobileRedirectProps {
 
 /**
  * Componente invisível que apenas executa o redirect automático
- * sem mostrar nenhuma interface para o usuário
+ * sem mostrar nenhuma interface para o usuário.
+ * Android users will be redirected to the appropriate locale-specific Android page.
  */
 export default function AutoMobileRedirect({
   appStoreUrl = 'https://apps.apple.com/app/id6742337191',

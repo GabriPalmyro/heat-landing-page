@@ -2,7 +2,9 @@
 
 import { Button } from '@/components/ui/button'
 import { useMobileRedirect } from '@/hooks/use-mobile-redirect'
+import { getLocaleFromPathname } from '@/src/i18n'
 import { X } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 interface MobileRedirectBannerProps {
@@ -17,6 +19,7 @@ export default function MobileRedirectBanner({
   const [showBanner, setShowBanner] = useState(false)
   const [redirectDisabled, setRedirectDisabled] = useState(false)
   const [mobileOS, setMobileOS] = useState<'ios' | 'android' | null>(null)
+  const router = useRouter()
 
   // Usar o hook de redirect com redirect desabilitado
   useMobileRedirect({
@@ -75,7 +78,12 @@ export default function MobileRedirectBanner({
     if (mobileOS === 'ios') {
       window.location.href = appStoreUrl
     } else if (mobileOS === 'android') {
-      window.location.href = googlePlayUrl
+      // Redirect to appropriate Android page based on locale
+      const currentLocale = getLocaleFromPathname(window.location.pathname)
+      const androidPath = currentLocale === 'pt' ? '/android' : 
+                         currentLocale === 'en' ? '/en/android' :
+                         '/es/android'
+      router.push(androidPath)
     }
   }
 
@@ -83,7 +91,7 @@ export default function MobileRedirectBanner({
     return null
   }
 
-  const storeName = mobileOS === 'ios' ? 'App Store' : 'Google Play'
+  const storeName = mobileOS === 'ios' ? 'App Store' : 'Android'
   const storeIcon = mobileOS === 'ios' ? '🍎' : '📱'
 
   return (

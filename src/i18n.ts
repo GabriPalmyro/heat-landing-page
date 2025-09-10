@@ -10,7 +10,8 @@ export const routeMapping = {
   '/support': { pt: '/suporte', en: '/en/support', es: '/es/support' },
   '/terms-of-use': { pt: '/termos-de-uso', en: '/en/terms-of-use', es: '/es/terms-of-use' },
   '/privacy-policy': { pt: '/politicas-de-privacidade', en: '/en/privacy-policy', es: '/es/privacy-policy' },
-  '/account-deletion': { pt: '/exclusao-de-conta', en: '/en/account-deletion', es: '/es/account-deletion' }
+  '/account-deletion': { pt: '/exclusao-de-conta', en: '/en/account-deletion', es: '/es/account-deletion' },
+  '/android': { pt: '/android', en: '/en/android', es: '/es/android' }
 } as const;
 
 // Utility function to get locale from pathname

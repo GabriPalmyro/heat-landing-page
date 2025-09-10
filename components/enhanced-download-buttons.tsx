@@ -2,8 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "@/hooks/use-translations"
-import { useState } from "react"
-import GooglePlayRestrictionDialog from "./google-play-restriction-dialog"
+import { useRouter } from "next/navigation"
 
 interface DownloadButtonsProps {
   variant?: "primary" | "secondary"
@@ -32,8 +31,8 @@ export default function EnhancedDownloadButtons({
   className = "",
   t
 }: DownloadButtonsProps) {
-  const [showRestrictionDialog, setShowRestrictionDialog] = useState(false)
   const { locale } = useTranslations()
+  const router = useRouter()
   
   const isPrimary = variant === "primary"
   const isLarge = size === "lg"
@@ -48,62 +47,52 @@ export default function EnhancedDownloadButtons({
 
   const handlePlayStoreClick = (e: React.MouseEvent) => {
     e.preventDefault()
-    setShowRestrictionDialog(true)
+    // Redirect directly to the Android page based on locale
+    const androidPath = locale === 'pt' ? '/android' : 
+                       locale === 'en' ? '/en/android' :
+                       '/es/android'
+    router.push(androidPath)
   }
 
   return (
-    <>
-      <div className={`flex flex-col justify-center gap-3 w-full max-w-sm mx-auto ${className}`}>
-        <Button
-          asChild
-          size={size}
-          className={`${buttonClasses} ${sizeClasses} rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-4 shadow-lg w-full justify-center`}
-        >
-          <a href="https://apps.apple.com/app/id6742337191" target="_blank" rel="noopener noreferrer">
-            <AppleIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
-            <span className="flex flex-col items-center -space-y-1">
-              <span className={`${isLarge ? 'text-base' : 'text-sm'} font-light ${isPrimary ? 'text-[#FF1D3E]/60' : 'text-white/60'}`}>
-                {t('download.installOn')}
-              </span>
-              <span className={`font-bold ${isLarge ? 'text-xl' : 'text-lg'}`}>
-                {t('download.appStore')}
-              </span>
-            </span>
-          </a>
-        </Button>
-        
-        <div className="text-center">
-          <span className="text-white text-sm font-medium">{t('download.or')}</span>
-        </div>
-        
-        <Button
-          size={size}
-          className={`${buttonClasses} ${sizeClasses} rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-4 shadow-lg w-full justify-center relative`}
-          onClick={handlePlayStoreClick}
-        >
-          <GooglePlayIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
+    <div className={`flex flex-col justify-center gap-3 w-full max-w-sm mx-auto ${className}`}>
+      <Button
+        asChild
+        size={size}
+        className={`${buttonClasses} ${sizeClasses} rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-4 shadow-lg w-full justify-center`}
+      >
+        <a href="https://apps.apple.com/app/id6742337191" target="_blank" rel="noopener noreferrer">
+          <AppleIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
           <span className="flex flex-col items-center -space-y-1">
             <span className={`${isLarge ? 'text-base' : 'text-sm'} font-light ${isPrimary ? 'text-[#FF1D3E]/60' : 'text-white/60'}`}>
               {t('download.installOn')}
             </span>
             <span className={`font-bold ${isLarge ? 'text-xl' : 'text-lg'}`}>
-              {t('download.playStore')}
+              {t('download.appStore')}
             </span>
           </span>
-          {/* Overlay para indicar restrição
-          <div className="absolute inset-0 bg-black/10 rounded-xl flex items-center justify-center">
-            <span className="text-xs bg-yellow-500 text-black px-2 py-1 rounded-full font-semibold">
-              ⚠️ Info
-            </span>
-          </div> */}
-        </Button>
+        </a>
+      </Button>
+      
+      <div className="text-center">
+        <span className="text-white text-sm font-medium">{t('download.or')}</span>
       </div>
-
-      <GooglePlayRestrictionDialog 
-        isOpen={showRestrictionDialog}
-        onClose={() => setShowRestrictionDialog(false)}
-        language={locale === 'pt' ? 'pt-br' : locale}
-      />
-    </>
+      
+      <Button
+        size={size}
+        className={`${buttonClasses} ${sizeClasses} rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-4 shadow-lg w-full justify-center relative`}
+        onClick={handlePlayStoreClick}
+      >
+        <GooglePlayIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
+        <span className="flex flex-col items-center -space-y-1">
+          <span className={`${isLarge ? 'text-base' : 'text-sm'} font-light ${isPrimary ? 'text-[#FF1D3E]/60' : 'text-white/60'}`}>
+            {t('download.installOn')}
+          </span>
+          <span className={`font-bold ${isLarge ? 'text-xl' : 'text-lg'}`}>
+            {t('download.playStore')}
+          </span>
+        </span>
+      </Button>
+    </div>
   )
 }
