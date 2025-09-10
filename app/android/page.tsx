@@ -4,20 +4,20 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import {
-    ArrowLeft,
-    ChevronRight,
-    Cloud,
-    Download,
-    Flag,
-    Info,
-    Lock,
-    MoreVertical,
-    Share2,
-    Shield,
-    Star,
-    ThumbsDown,
-    ThumbsUp,
-    Trash2,
+  ArrowLeft,
+  ChevronRight,
+  Cloud,
+  Download,
+  Flag,
+  Info,
+  Lock,
+  MoreVertical,
+  Share2,
+  Shield,
+  Star,
+  ThumbsDown,
+  ThumbsUp,
+  Trash2,
 } from "lucide-react"
 import { useState } from "react"
 
@@ -26,13 +26,13 @@ export default function HeatGamePlayStore() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0)
 
   const handleInstallClick = () => {
-    // Replace this URL with your actual APK download link
-    const apkUrl = "/app-release.apk" // or "https://yourdomain.com/path/to/app-release.apk"
+    // Supabase Storage URL for APK download
+    const apkUrl = "https://uwjpufwedldtmjhmzqye.supabase.co/storage/v1/object/public/apk-android/app-release.apk"
     
     // Create a temporary link element and trigger download
     const link = document.createElement('a')
     link.href = apkUrl
-    link.download = 'app-release.apk'
+    link.download = 'heat-app-release.apk'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
