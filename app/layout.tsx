@@ -1,9 +1,22 @@
+// import type React from "react"
 import "@/app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Inter } from "next/font/google"
+import localFont from "next/font/local"
 import type React from "react"
 
-const inter = Inter({ subsets: ["latin"] })
+const productSans = localFont({
+  src: [
+    { path: "../public/fonts/ProductSans-Thin.ttf", weight: "100", style: "normal" },
+    { path: "../public/fonts/ProductSans-Light.ttf", weight: "300", style: "normal" },
+    { path: "../public/fonts/ProductSans-Regular.ttf", weight: "400", style: "normal" },
+    { path: "../public/fonts/ProductSans-Medium.ttf", weight: "500", style: "normal" },
+    { path: "../public/fonts/ProductSans-Bold.ttf", weight: "700", style: "normal" },
+    { path: "../public/fonts/ProductSans-Black.ttf", weight: "900", style: "normal" },
+  ],
+  variable: "--font-product-sans",
+  display: "swap",
+})
+
 
 export const metadata = {
   title: "Heat - O Jogo Mais Quente para Casais",
@@ -19,8 +32,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={inter.className}>
+    <html lang="pt-BR" className={productSans.variable}>
+      <body className="font-sans antialiased">
         <ThemeProvider 
           attribute="class" 
           defaultTheme="dark" 
