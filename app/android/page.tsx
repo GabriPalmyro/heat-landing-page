@@ -27,7 +27,7 @@ export default function HeatGamePlayStore() {
 
   const handleInstallClick = () => {
     // Supabase Storage URL for APK download
-    const apkUrl = "https://uwjpufwedldtmjhmzqye.supabase.co/storage/v1/object/public/apk-android/app-release.apk"
+    const apkUrl = "https://github.com/Heat-Game/heat_app/releases/download/v1.7.0/app-release.apk"
     
     // Create a temporary link element and trigger download
     const link = document.createElement('a')

@@ -4,20 +4,20 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import {
-    ArrowLeft,
-    ChevronRight,
-    Cloud,
-    Download,
-    Flag,
-    Info,
-    Lock,
-    MoreVertical,
-    Share2,
-    Shield,
-    Star,
-    ThumbsDown,
-    ThumbsUp,
-    Trash2,
+  ArrowLeft,
+  ChevronRight,
+  Cloud,
+  Download,
+  Flag,
+  Info,
+  Lock,
+  MoreVertical,
+  Share2,
+  Shield,
+  Star,
+  ThumbsDown,
+  ThumbsUp,
+  Trash2,
 } from "lucide-react"
 import { useState } from "react"
 
@@ -27,7 +27,7 @@ export default function HeatGamePlayStoreEN() {
 
   const handleInstallClick = () => {
     // Supabase Storage URL for APK download
-    const apkUrl = "https://uwjpufwedldtmjhmzqye.supabase.co/storage/v1/object/public/apk-android/app-release.apk"
+    const apkUrl = "https://github.com/Heat-Game/heat_app/releases/download/v1.7.0/app-release.apk"
     
     // Create a temporary link element and trigger download
     const link = document.createElement('a')
