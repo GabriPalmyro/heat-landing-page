@@ -123,6 +123,13 @@
     "accountDeletion": {
       "title": "Eliminación de Cuenta — Heat Game 🔥",
       "description": "Cómo eliminar tu cuenta"
+    },
+    "successPayment": {
+      "title": "¡Suscripción Activa!",
+      "subtitle": "¡Felicitaciones! Tu suscripción ha sido activada exitosamente.",
+      "message": "Ahora puedes disfrutar de todas las funciones premium de Heat. ¡Regresa a la app y comienza a explorar nuevos desafíos!",
+      "returnButton": "Volver a la App",
+      "thankYou": "¡Gracias por elegir Heat!"
     }
   }
 }
