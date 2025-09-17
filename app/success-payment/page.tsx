@@ -166,16 +166,6 @@ export default function SuccessPaymentPage() {
 
         {/* Footer */}
         <Footer />
-        
-        {/* Debug Info - Remove this after debugging */}
-        <div className="fixed bottom-0 left-0 right-0 bg-black/90 text-white p-4 text-xs z-50">
-          <div className="max-w-md mx-auto">
-            <div><strong>Navigator Language:</strong> {debugInfo.navigatorLanguage}</div>
-            <div><strong>Navigator Languages:</strong> {JSON.stringify(debugInfo.navigatorLanguages)}</div>
-            <div><strong>Detected Locale:</strong> {locale}</div>
-            <div><strong>User Agent:</strong> {debugInfo.userAgent?.substring(0, 80)}...</div>
-          </div>
-        </div>
       </div>
     </div>
   )
