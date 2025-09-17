@@ -26,16 +26,11 @@ export default function HeatGamePlayStore() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0)
 
   const handleInstallClick = () => {
-    // Supabase Storage URL for APK download
-    const apkUrl = "https://github.com/Heat-Game/heat_app/releases/download/v1.7.2/app-release.apk"
+    // R2 CDN URL for APK download
+    const apkUrl = "https://pub-3aa1ba49fdb04de1b8653d47fc4df68c.r2.dev/app-release.apk"
     
-    // Create a temporary link element and trigger download
-    const link = document.createElement('a')
-    link.href = apkUrl
-    link.download = 'heat-app-release.apk'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    // Open URL in new tab to trigger download
+    window.open(apkUrl, '_blank')
   }
 
   const screenshots = [
@@ -110,7 +105,7 @@ export default function HeatGamePlayStore() {
 
             <div className="flex-1 min-w-0">
               <h1 className="text-3xl font-bold text-gray-900 mb-1 text-balance">Heat Game</h1>
-              <p className="text-green-700 text-sm mb-1">PineApp</p>
+              <p className="text-green-700 text-sm mb-1">Heat Apps</p>
               <p className="text-gray-600 text-sm">Compras no app</p>
             </div>
           </div>
@@ -124,11 +119,11 @@ export default function HeatGamePlayStore() {
             <div className="w-px h-8 bg-gray-300"></div>
             <div className="text-center">
               <Download className="h-4 w-4 text-gray-600 mx-auto mb-1" />
-              <div className="text-xs text-gray-600">8 MB</div>
+              <div className="text-xs text-gray-600">85 MB</div>
             </div>
             <div className="w-px h-8 bg-gray-300"></div>
             <div className="text-center">
-              <div className="font-medium text-gray-900">4M</div>
+              <div className="font-medium text-gray-900">500K</div>
               <div className="text-xs text-gray-600">Downloads</div>
             </div>
             <div className="w-px h-8 bg-gray-300"></div>
@@ -334,15 +329,15 @@ export default function HeatGamePlayStore() {
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Tamanho</span>
-              <span className="text-gray-900">8 MB</span>
+              <span className="text-gray-900">85 MB</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Instalações</span>
-              <span className="text-gray-900">4.000.000+</span>
+              <span className="text-gray-900">500.000+</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Versão atual</span>
-              <span className="text-gray-900">1.7.0</span>
+              <span className="text-gray-900">1.7.2</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Requer Android</span>
@@ -357,7 +352,7 @@ export default function HeatGamePlayStore() {
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Oferecido por</span>
-              <span className="text-gray-900">PineApp</span>
+              <span className="text-gray-900">Heat Apps</span>
             </div>
           </div>
         </div>

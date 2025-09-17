@@ -4,20 +4,20 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import {
-  ArrowLeft,
-  ChevronRight,
-  Cloud,
-  Download,
-  Flag,
-  Info,
-  Lock,
-  MoreVertical,
-  Share2,
-  Shield,
-  Star,
-  ThumbsDown,
-  ThumbsUp,
-  Trash2,
+    ArrowLeft,
+    ChevronRight,
+    Cloud,
+    Download,
+    Flag,
+    Info,
+    Lock,
+    MoreVertical,
+    Share2,
+    Shield,
+    Star,
+    ThumbsDown,
+    ThumbsUp,
+    Trash2,
 } from "lucide-react"
 import { useState } from "react"
 
@@ -26,16 +26,11 @@ export default function HeatGamePlayStoreES() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0)
 
   const handleInstallClick = () => {
-    // Supabase Storage URL for APK download
-    const apkUrl = "https://github.com/Heat-Game/heat_app/releases/download/v1.7.2/app-release.apk"
+    // R2 CDN URL for APK download
+    const apkUrl = "https://pub-3aa1ba49fdb04de1b8653d47fc4df68c.r2.dev/app-release.apk"
     
-    // Create a temporary link element and trigger download
-    const link = document.createElement('a')
-    link.href = apkUrl
-    link.download = 'heat-app-release.apk'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    // Open URL in new tab to trigger download
+    window.open(apkUrl, '_blank')
   }
 
   const screenshots = [
@@ -110,7 +105,7 @@ export default function HeatGamePlayStoreES() {
 
             <div className="flex-1 min-w-0">
               <h1 className="text-3xl font-bold text-gray-900 mb-1 text-balance">Heat Game</h1>
-              <p className="text-green-700 text-sm mb-1">PineApp</p>
+              <p className="text-green-700 text-sm mb-1">Heat Apps</p>
               <p className="text-gray-600 text-sm">Compras en la app</p>
             </div>
           </div>
@@ -124,11 +119,11 @@ export default function HeatGamePlayStoreES() {
             <div className="w-px h-8 bg-gray-300"></div>
             <div className="text-center">
               <Download className="h-4 w-4 text-gray-600 mx-auto mb-1" />
-              <div className="text-xs text-gray-600">8 MB</div>
+              <div className="text-xs text-gray-600">85 MB</div>
             </div>
             <div className="w-px h-8 bg-gray-300"></div>
             <div className="text-center">
-              <div className="font-medium text-gray-900">4M</div>
+              <div className="font-medium text-gray-900">500K</div>
               <div className="text-xs text-gray-600">Descargas</div>
             </div>
             <div className="w-px h-8 bg-gray-300"></div>
@@ -334,15 +329,15 @@ export default function HeatGamePlayStoreES() {
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Tamaño</span>
-              <span>8 MB</span>
+              <span>85 MB</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Instalaciones</span>
-              <span>4,000,000+</span>
+              <span>500,000+</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Versión actual</span>
-              <span>1.7.0</span>
+              <span>1.7.2</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Requiere Android</span>
@@ -357,7 +352,7 @@ export default function HeatGamePlayStoreES() {
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Ofrecida por</span>
-              <span>PineApp</span>
+              <span>Heat Apps</span>
             </div>
           </div>
         </div>
