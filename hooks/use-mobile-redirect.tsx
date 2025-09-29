@@ -1,8 +1,9 @@
 "use client"
 
+import { useEffect, useMemo, useState } from 'react'
+
+import { APP_STORE_URL, getAndroidDetailRoute } from '@/lib/download-links'
 import { getLocaleFromPathname } from '@/src/i18n'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
 
 export interface MobileRedirectOptions {
   appStoreUrl?: string
@@ -11,18 +12,15 @@ export interface MobileRedirectOptions {
   enableRedirect?: boolean
 }
 
-const defaultOptions: Required<MobileRedirectOptions> = {
-  appStoreUrl: 'https://apps.apple.com/app/id6742337191',
-  googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.heatcouple.app',
-  redirectDelay: 300,
-  enableRedirect: false
-}
-
 export function useMobileRedirect(options: MobileRedirectOptions = {}) {
-  const config = { ...defaultOptions, ...options }
+  const config = useMemo(() => ({
+    appStoreUrl: options.appStoreUrl ?? APP_STORE_URL,
+    googlePlayUrl: options.googlePlayUrl,
+    redirectDelay: options.redirectDelay ?? 300,
+    enableRedirect: options.enableRedirect ?? false
+  }), [options.appStoreUrl, options.googlePlayUrl, options.redirectDelay, options.enableRedirect])
   const [isFromTikTok, setIsFromTikTok] = useState(false)
   const [mobileOS, setMobileOS] = useState<'ios' | 'android' | null>(null)
-  const router = useRouter()
 
   useEffect(() => {
     // Detecta se veio do TikTok
@@ -59,12 +57,9 @@ export function useMobileRedirect(options: MobileRedirectOptions = {}) {
       if (detectedOS === 'ios') {
         window.location.href = config.appStoreUrl
       } else if (detectedOS === 'android') {
-        // Redirect to appropriate Android page based on locale
         const currentLocale = getLocaleFromPathname(window.location.pathname)
-        const androidPath = currentLocale === 'pt' ? '/android' : 
-                           currentLocale === 'en' ? '/en/android' :
-                           '/es/android'
-        router.push(androidPath)
+        const androidDetailPath = getAndroidDetailRoute(currentLocale)
+        window.location.href = config.googlePlayUrl ?? androidDetailPath
       }
     }
 
@@ -72,7 +67,7 @@ export function useMobileRedirect(options: MobileRedirectOptions = {}) {
     const timer = setTimeout(redirectToStore, config.redirectDelay)
 
     return () => clearTimeout(timer)
-  }, [config, router])
+  }, [config])
 
   return {
     isRedirectEnabled: config.enableRedirect,

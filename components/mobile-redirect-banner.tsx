@@ -1,11 +1,12 @@
 "use client"
 
 import { Button } from '@/components/ui/button'
+import { useEffect, useState } from 'react'
+
 import { useMobileRedirect } from '@/hooks/use-mobile-redirect'
+import { APP_STORE_URL, getAndroidDetailRoute } from '@/lib/download-links'
 import { getLocaleFromPathname } from '@/src/i18n'
 import { X } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
 
 interface MobileRedirectBannerProps {
   appStoreUrl?: string
@@ -13,13 +14,12 @@ interface MobileRedirectBannerProps {
 }
 
 export default function MobileRedirectBanner({ 
-  appStoreUrl = 'https://apps.apple.com/app/id6742337191',
-  googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.heatcouple.app'
+  appStoreUrl = APP_STORE_URL,
+  googlePlayUrl
 }: MobileRedirectBannerProps) {
   const [showBanner, setShowBanner] = useState(false)
   const [redirectDisabled, setRedirectDisabled] = useState(false)
   const [mobileOS, setMobileOS] = useState<'ios' | 'android' | null>(null)
-  const router = useRouter()
 
   // Usar o hook de redirect com redirect desabilitado
   useMobileRedirect({
@@ -78,12 +78,9 @@ export default function MobileRedirectBanner({
     if (mobileOS === 'ios') {
       window.location.href = appStoreUrl
     } else if (mobileOS === 'android') {
-      // Redirect to appropriate Android page based on locale
       const currentLocale = getLocaleFromPathname(window.location.pathname)
-      const androidPath = currentLocale === 'pt' ? '/android' : 
-                         currentLocale === 'en' ? '/en/android' :
-                         '/es/android'
-      router.push(androidPath)
+      const androidPath = getAndroidDetailRoute(currentLocale)
+      window.location.href = googlePlayUrl ?? androidPath
     }
   }
 

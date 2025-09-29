@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation"
 import { ArrowLeft, ChevronRight, Cloud, Download, Flag, Info, Lock, MoreVertical, Share2, Shield, Star, ThumbsDown, ThumbsUp, Trash2 } from "lucide-react"
 
 import { androidContent } from "@/lib/android-content"
+import { ANDROID_APK_URL } from "@/lib/download-links"
 import { Locale } from "@/src/i18n"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
@@ -32,8 +33,7 @@ export function AndroidStorePage({ locale }: AndroidStorePageProps) {
   const safetyIcons = [Share2, Cloud, Lock, Trash2]
 
   const handleInstallClick = () => {
-    const apkUrl = "https://pub-3aa1ba49fdb04de1b8653d47fc4df68c.r2.dev/app-release.apk"
-    window.open(apkUrl, "_blank")
+    window.open(ANDROID_APK_URL, "_blank", "noopener,noreferrer")
   }
 
   return (
@@ -57,6 +57,9 @@ export function AndroidStorePage({ locale }: AndroidStorePageProps) {
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Heat%20Logo-Zt8DWK5YNWyka1p1WZhXEhg6T5G6aj.png"
                 alt="Heat Game Icon"
                 className="h-20 w-20 rounded-2xl shadow-lg object-cover"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
 
@@ -117,6 +120,10 @@ export function AndroidStorePage({ locale }: AndroidStorePageProps) {
                     alt={`Screenshot ${index + 1}`}
                     className="h-96 w-44 object-cover rounded-2xl shadow-md cursor-pointer"
                     onClick={() => setCurrentScreenshot(index)}
+                    loading={index === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                    width={176}
+                    height={384}
                   />
                 </div>
               ))}
@@ -218,7 +225,7 @@ export function AndroidStorePage({ locale }: AndroidStorePageProps) {
                 <CardContent className="p-0">
                   <div className="flex gap-3">
                     <Avatar className="h-10 w-10">
-                      <AvatarImage src={review.avatar || "/placeholder.svg"} alt={review.name} />
+                      <AvatarImage src={review.avatar || "/placeholder.svg"} alt={review.name} loading="lazy" />
                       <AvatarFallback>
                         {review.name
                           .split(" ")

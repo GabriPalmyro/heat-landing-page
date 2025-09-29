@@ -102,7 +102,8 @@
     "installOn": "Instale na",
     "appStore": "App Store",
     "playStore": "Play Store",
-    "or": "Ou"
+    "or": "Ou",
+    "directApkLink": "Baixar APK diretamente"
   },
   "pages": {
     "support": {

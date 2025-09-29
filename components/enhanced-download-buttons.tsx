@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "@/hooks/use-translations"
-import { useRouter } from "next/navigation"
+import { ANDROID_APK_URL, APP_STORE_URL, getAndroidDetailRoute } from "@/lib/download-links"
+import Link from "next/link"
 
 interface DownloadButtonsProps {
   variant?: "primary" | "secondary"
@@ -32,7 +33,6 @@ export default function EnhancedDownloadButtons({
   t
 }: DownloadButtonsProps) {
   const { locale } = useTranslations()
-  const router = useRouter()
   
   const isPrimary = variant === "primary"
   const isLarge = size === "lg"
@@ -44,15 +44,7 @@ export default function EnhancedDownloadButtons({
   const sizeClasses = isLarge 
     ? "text-xl px-10 py-8" 
     : "text-lg px-8 py-6"
-
-  const handlePlayStoreClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    // Redirect directly to the Android page based on locale
-    const androidPath = locale === 'pt' ? '/android' : 
-                       locale === 'en' ? '/en/android' :
-                       '/es/android'
-    router.push(androidPath)
-  }
+  const androidDetailsPath = getAndroidDetailRoute(locale)
 
   return (
     <div className={`flex flex-col justify-center gap-3 w-full max-w-sm mx-auto ${className}`}>
@@ -61,7 +53,7 @@ export default function EnhancedDownloadButtons({
         size={size}
         className={`${buttonClasses} ${sizeClasses} rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-4 shadow-lg w-full justify-center`}
       >
-        <a href="https://apps.apple.com/app/id6742337191" target="_blank" rel="noopener noreferrer">
+        <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
           <AppleIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
           <span className="flex flex-col items-center -space-y-1">
             <span className={`${isLarge ? 'text-base' : 'text-sm'} font-light ${isPrimary ? 'text-[#FF1D3E]/60' : 'text-white/60'}`}>
@@ -79,20 +71,36 @@ export default function EnhancedDownloadButtons({
       </div>
       
       <Button
+        asChild
         size={size}
         className={`${buttonClasses} ${sizeClasses} rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-4 shadow-lg w-full justify-center relative`}
-        onClick={handlePlayStoreClick}
       >
-        <GooglePlayIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
-        <span className="flex flex-col items-center -space-y-1">
-          <span className={`${isLarge ? 'text-base' : 'text-sm'} font-light ${isPrimary ? 'text-[#FF1D3E]/60' : 'text-white/60'}`}>
-            {t('download.installOn')}
+        <Link href={androidDetailsPath} prefetch={false}>
+          <GooglePlayIcon className={`${isLarge ? 'h-20 w-20' : 'h-16 w-16'} flex-shrink-0`} />
+          <span className="flex flex-col items-center -space-y-1">
+            <span className={`${isLarge ? 'text-base' : 'text-sm'} font-light ${isPrimary ? 'text-[#FF1D3E]/60' : 'text-white/60'}`}>
+              {t('download.installOn')}
+            </span>
+            <span className={`font-bold ${isLarge ? 'text-xl' : 'text-lg'}`}>
+              {t('download.playStore')}
+            </span>
           </span>
-          <span className={`font-bold ${isLarge ? 'text-xl' : 'text-lg'}`}>
-            {t('download.playStore')}
-          </span>
-        </span>
+        </Link>
       </Button>
+
+      <div className="text-center">
+        <a
+          href={ANDROID_APK_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          download
+          className={`text-xs font-medium underline-offset-4 hover:underline transition-colors ${
+            isPrimary ? 'text-white/70 hover:text-white' : 'text-white/80 hover:text-white'
+          }`}
+        >
+          {t('download.directApkLink') ?? 'Baixar APK diretamente'}
+        </a>
+      </div>
     </div>
   )
 }

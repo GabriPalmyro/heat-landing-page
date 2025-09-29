@@ -1,6 +1,7 @@
 "use client"
 
 import { useMobileRedirect } from '@/hooks/use-mobile-redirect'
+import { APP_STORE_URL } from '@/lib/download-links'
 
 interface AutoMobileRedirectProps {
   appStoreUrl?: string
@@ -15,8 +16,8 @@ interface AutoMobileRedirectProps {
  * Android users will be redirected to the appropriate locale-specific Android page.
  */
 export default function AutoMobileRedirect({
-  appStoreUrl = 'https://apps.apple.com/app/id6742337191',
-  googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.heatcouple.app',
+  appStoreUrl = APP_STORE_URL,
+  googlePlayUrl,
   redirectDelay = 1000,
   enabled = false
 }: AutoMobileRedirectProps) {

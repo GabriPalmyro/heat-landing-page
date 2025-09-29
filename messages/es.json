@@ -107,7 +107,8 @@
     "installOn": "Descargar en",
     "appStore": "App Store",
     "playStore": "Play Store",
-    "or": "O"
+    "or": "O",
+    "directApkLink": "Descargar APK directamente"
   },
   "pages": {
     "support": {
