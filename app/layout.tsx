@@ -1,6 +1,7 @@
 // import type React from "react"
 import "@/app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { GoogleAnalytics } from '@next/third-parties/google'
 import localFont from "next/font/local"
 import type React from "react"
 
@@ -43,6 +44,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-JDRW1TBKPD" />
     </html>
   )
 }

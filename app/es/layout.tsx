@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,6 +30,7 @@ export default function EsLayout({
           {children}
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-JDRW1TBKPD" />
     </html>
   );
 }
