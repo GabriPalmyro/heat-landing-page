@@ -11,13 +11,29 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
-const SCREENSHOTS = [
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-9y6o9rpc1XtMwNynVhjdlx5HRbcqVi.png",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-XcxsPmu1l6RAKoabYjjYP8HjR48xTH.png",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-ObWLWHqmNoaax4hRSoujRD7RJyzs3p.png",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-FoVeY8WUE1t7VfvRgOA2x94dAmmJhe.png",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5-DJaWigRooFEqVmgGdNEa3Fmhn3ceyF.png",
-]
+const SCREENSHOTS_BY_LOCALE: Record<Locale, string[]> = {
+  pt: [
+    "/images/screenshots/pt/heat-screenshot-1.png",
+    "/images/screenshots/pt/heat-screenshot-2.png",
+    "/images/screenshots/pt/heat-screenshot-3.png",
+    "/images/screenshots/pt/heat-screenshot-4.png",
+    "/images/screenshots/pt/heat-screenshot-5.png",
+  ],
+  en: [
+    "/images/screenshots/en/heat-screenshot-1.png",
+    "/images/screenshots/en/heat-screenshot-2.png",
+    "/images/screenshots/en/heat-screenshot-3.png",
+    "/images/screenshots/en/heat-screenshot-4.png",
+    "/images/screenshots/en/heat-screenshot-5.png",
+  ],
+  es: [
+    "/images/screenshots/es/heat-screenshot-1.png",
+    "/images/screenshots/es/heat-screenshot-2.png",
+    "/images/screenshots/es/heat-screenshot-3.png",
+    "/images/screenshots/es/heat-screenshot-4.png",
+    "/images/screenshots/es/heat-screenshot-5.png",
+  ],
+}
 
 type AndroidStorePageProps = {
   locale: Locale
@@ -31,6 +47,7 @@ export function AndroidStorePage({ locale }: AndroidStorePageProps) {
   const content = androidContent[locale] || androidContent.pt
   const isUpdateMode = searchParams?.get("update") === "true"
   const safetyIcons = [Share2, Cloud, Lock, Trash2]
+  const screenshots = SCREENSHOTS_BY_LOCALE[locale] ?? SCREENSHOTS_BY_LOCALE.pt
 
   const handleInstallClick = () => {
     window.open(ANDROID_APK_URL, "_blank", "noopener,noreferrer")
@@ -113,7 +130,7 @@ export function AndroidStorePage({ locale }: AndroidStorePageProps) {
         <div className="py-4">
           <div className="relative">
             <div className="flex gap-2 px-4 overflow-x-auto scrollbar-hide">
-              {SCREENSHOTS.map((screenshot, index) => (
+              {screenshots.map((screenshot, index) => (
                 <div key={screenshot} className="flex-shrink-0 relative">
                   <img
                     src={screenshot || "/placeholder.svg"}
